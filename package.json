@@ -1,0 +1,493 @@
+{
+    "name": "git-buttons",
+    "publisher": "anweber",
+    "version": "1.0.0",
+    "description": "Git Git Buttons for Visual Studio Code",
+    "displayName": "Git Buttons",
+    "main": "dist/extension.js",
+    "icon": "icon.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AnWeber/vscode-gitbuttons"
+    },
+    "bugs": {
+        "url": "https://github.com/AnWeber/vscode-gitbuttons/issues"
+    },
+    "license": "MIT",
+    "categories": [
+        "Other"
+    ],
+    "keywords": [
+        "git",
+        "scm"
+    ],
+    "engines": {
+        "vscode": "^1.56.0"
+    },
+    "extensionKind": [
+        "workspace"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "capabilities": {
+        "virtualWorkspaces": true,
+        "untrustedWorkspaces": {
+            "supported": true
+        }
+    },
+    "contributes": {
+        "configuration": [
+            {
+                "title": "Git Buttons",
+                "description": "Buttons to show in source control pane",
+                "properties": {
+                    "git-buttons.showGitPull": {
+                        "type": "boolean",
+                        "default": true,
+                        "description": "Git Pull"
+                    },
+                    "git-buttons.showGitPullRebase": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Pull (Rebase)"
+                    },
+                    "git-buttons.showGitPullFrom": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Pull From..."
+                    },
+                    "git-buttons.showGitPush": {
+                        "type": "boolean",
+                        "default": true,
+                        "description": "Git Push"
+                    },
+                    "git-buttons.showGitPushTo": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Push To..."
+                    },
+                    "git-buttons.showGitCheckout": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Checkout"
+                    },
+                    "git-buttons.showGitPublish": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Publish Branch..."
+                    },
+                    "git-buttons.showGitCommitAll": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Commit All"
+                    },
+                    "git-buttons.showGitCommitAllAmend": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Commit All (Amend)"
+                    },
+                    "git-buttons.showGitCommitAllSigned": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Commit All (Signed Off)"
+                    },
+                    "git-buttons.showGitCommitStaged": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Commit Staged"
+                    },
+                    "git-buttons.showGitCommitStagedAmend": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Commit Staged (Amend)"
+                    },
+                    "git-buttons.showGitCommitStagedSigned": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Commit Staged (Signed Off)"
+                    },
+                    "git-buttons.showGitUndoCommit": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Undo Commit"
+                    },
+                    "git-buttons.showGitCleanAll": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Clean All"
+                    },
+                    "git-buttons.showGitStageAll": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Stage All"
+                    },
+                    "git-buttons.showGitUnstageAll": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Unstage All"
+                    },
+                    "git-buttons.showGitStashApplyLatest": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Apply Latest Stash"
+                    },
+                    "git-buttons.showGitStashApply": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Apply Stash..."
+                    },
+                    "git-buttons.showGitStashDrop": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Drop Stash..."
+                    },
+                    "git-buttons.showGitStashPopLatest": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Pop Latest Stash"
+                    },
+                    "git-buttons.showGitStashPop": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Pop Stash..."
+                    },
+                    "git-buttons.showGitStash": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Stash"
+                    },
+                    "git-buttons.showGitStashIncludeUntacked": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Stash (Include Untacked)"
+                    },
+                    "git-buttons.showGitShowOutput": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Show Output"
+                    },
+                    "git-buttons.showGitSync": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Sync"
+                    }
+                }
+            }
+        ],
+        "commands": [
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.pull",
+                "title": "Pull",
+                "icon": "$(arrow-down)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.pullRebase",
+                "title": "Pull (Rebase)",
+                "icon": "$(arrow-small-down)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.pullFrom",
+                "title": "Pull from...",
+                "icon": "$(cloud-download)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.push",
+                "title": "Push",
+                "icon": "$(arrow-up)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.pushTo",
+                "title": "Push to...",
+                "icon": "$(cloud-upload)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.checkout",
+                "title": "Checkout to...",
+                "icon": "$(git-commit)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.publish",
+                "title": "Publish branch...",
+                "icon": "$(live-share)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.commitAll",
+                "title": "Commit All",
+                "icon": "$(checklist)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.commitAllAmend",
+                "title": "Commit All (Amend)",
+                "icon": "$(tasklist)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.commitAllSigned",
+                "title": "Commit All (Signed Off)",
+                "icon": "$(issue-closed)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.commitStaged",
+                "title": "Commit Staged",
+                "icon": "$(check)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.commitStagedAmend",
+                "title": "Commit Staged (Amend)",
+                "icon": "$(tasklist)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.commitStagedSigned",
+                "title": "Commit Staged (Signed Off)",
+                "icon": "$(issue-closed)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.undoCommit",
+                "title": "Undo Commit",
+                "icon": "$(history)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.cleanAll",
+                "title": "Discard All Changes",
+                "icon": "$(clear-all)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.stageAll",
+                "title": "Stage All Changes",
+                "icon": "$(diff-added)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.unstageAll",
+                "title": "Unstage All Changes",
+                "icon": "$(diff-removed)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.stashApplyLatest",
+                "title": "Apply Latest Stash",
+                "icon": "$(repo-clone)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.stashApply",
+                "title": "Apply Stash...",
+                "icon": "$(repo-clone)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.stashDrop",
+                "title": "Drop Stash...",
+                "icon": "$(trash)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.stashPopLatest",
+                "title": "Pop Latest Stash",
+                "icon": "$(repo-pull)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.stashPop",
+                "title": "Pop Stash...",
+                "icon": "$(repo-pull)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.stash",
+                "title": "Stash",
+                "icon": "$(repo-push)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.stashIncludeUntacked",
+                "title": "Stash (Include Untracked)",
+                "icon": "$(repo-force-push)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.showOutput",
+                "title": "Show Git Output",
+                "icon": "$(terminal)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.sync",
+                "title": "Sync",
+                "icon": "$(sync)"
+            }
+        ],
+        "menus": {
+            "scm/title": [
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitPull",
+                    "command": "git-buttons.pull",
+                    "group": "navigation@1"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitPullRebase",
+                    "command": "git-buttons.pullRebase",
+                    "group": "navigation@2"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitPullFrom",
+                    "command": "git-buttons.pullFrom",
+                    "group": "navigation@3"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitPush",
+                    "command": "git-buttons.push",
+                    "group": "navigation@4"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitPushTo",
+                    "command": "git-buttons.pushTo",
+                    "group": "navigation@5"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitCheckout",
+                    "command": "git-buttons.checkout",
+                    "group": "navigation@6"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitPublish",
+                    "command": "git-buttons.publish",
+                    "group": "navigation@7"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitCommitAll",
+                    "command": "git-buttons.commitAll",
+                    "group": "navigation@8"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitCommitAllAmend",
+                    "command": "git-buttons.commitAllAmend",
+                    "group": "navigation@9"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitCommitAllSigned",
+                    "command": "git-buttons.commitAllSigned",
+                    "group": "navigation@10"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitCommitStaged",
+                    "command": "git-buttons.commitStaged",
+                    "group": "navigation@11"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitCommitStagedAmend",
+                    "command": "git-buttons.commitStagedAmend",
+                    "group": "navigation@12"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitCommitStagedSigned",
+                    "command": "git-buttons.commitStagedSigned",
+                    "group": "navigation@13"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitUndoCommit",
+                    "command": "git-buttons.undoCommit",
+                    "group": "navigation@14"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitCleanAll",
+                    "command": "git-buttons.cleanAll",
+                    "group": "navigation@15"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitStageAll",
+                    "command": "git-buttons.stageAll",
+                    "group": "navigation@16"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitUnstageAll",
+                    "command": "git-buttons.unstageAll",
+                    "group": "navigation@17"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitStashApplyLatest",
+                    "command": "git-buttons.stashApplyLatest",
+                    "group": "navigation@18"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitStashApply",
+                    "command": "git-buttons.stashApply",
+                    "group": "navigation@19"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitStashDrop",
+                    "command": "git-buttons.stashDrop",
+                    "group": "navigation@20"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitStashPopLatest",
+                    "command": "git-buttons.stashPopLatest",
+                    "group": "navigation@21"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitStashPop",
+                    "command": "git-buttons.stashPop",
+                    "group": "navigation@22"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitStash",
+                    "command": "git-buttons.stash",
+                    "group": "navigation@23"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitStashIncludeUntacked",
+                    "command": "git-buttons.stashIncludeUntacked",
+                    "group": "navigation@24"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitShowOutput",
+                    "command": "git-buttons.showOutput",
+                    "group": "navigation@25"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitSync",
+                    "command": "git-buttons.sync",
+                    "group": "navigation@26"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "webpack --mode production --config ./webpack.config.js",
+        "watch": "webpack --mode development --watch --config ./webpack.config.js",
+        "lockfile-lint": "lockfile-lint --path package-lock.json --validate-https --allowed-hosts npm --validate-checksum --validate-integrity",
+        "eslint": "eslint src --ext ts",
+        "lint": "npm run eslint && npm run lockfile-lint"
+    },
+    "devDependencies": {
+        "@types/node": "^15.6.1",
+        "@types/vscode": "^1.56.0",
+        "@typescript-eslint/eslint-plugin": "^4.23.0",
+        "@typescript-eslint/parser": "^4.25.0",
+        "eslint": "^7.27.0",
+        "fork-ts-checker-webpack-plugin": "^6.2.10",
+        "lockfile-lint": "^4.6.2",
+        "thread-loader": "^3.0.4",
+        "ts-loader": "^9.2.2",
+        "typescript": "^4.3.2",
+        "webpack": "^5.37.1",
+        "webpack-cli": "^4.7.0"
+    }
+}
