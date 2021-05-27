@@ -13,6 +13,7 @@
     "bugs": {
         "url": "https://github.com/AnWeber/vscode-gitbuttons/issues"
     },
+	"qna": "https://github.com/AnWeber/vscode-gitbuttons/discussions",
     "license": "MIT",
     "categories": [
         "Other"
