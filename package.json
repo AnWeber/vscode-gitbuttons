@@ -172,6 +172,11 @@
                         "type": "boolean",
                         "default": false,
                         "description": "Git Sync"
+                    },
+                    "git-buttons.showGitSyncRebase": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Sync (Rebase)"
                     }
                 }
             }
@@ -332,6 +337,12 @@
                 "command": "git-buttons.sync",
                 "title": "Sync",
                 "icon": "$(sync)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.syncRebase",
+                "title": "Sync (Rebase)",
+                "icon": "$(sync)"
             }
         ],
         "menus": {
@@ -464,6 +475,11 @@
                 {
                     "when": "scmProvider == git && config.git-buttons.showGitSync",
                     "command": "git-buttons.sync",
+                    "group": "navigation@26"
+                },
+                {
+                    "when": "scmProvider == git && config.git-buttons.showGitSyncRebase",
+                    "command": "git-buttons.syncRebase",
                     "group": "navigation@26"
                 }
             ]
