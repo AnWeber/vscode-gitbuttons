@@ -17,6 +17,7 @@ const fs = require('fs').promises;
 
     const { commands } = packageJson.contributes;
     packageJson.contributes.commands = body.contributes.commands
+      .filter(obj => obj.command.split('.').length < 3)
       .map(obj => {
         const result = {
           title: obj.command,
@@ -37,7 +38,7 @@ const fs = require('fs').promises;
 
       acc[curr.command] = {
         'type': 'boolean',
-        'default': true,
+        'default': false,
         'description': curr.title
       };
 
