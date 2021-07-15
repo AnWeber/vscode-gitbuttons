@@ -184,45 +184,15 @@
         "commands": [
             {
                 "category": "Git Buttons",
-                "command": "git-buttons.pull",
-                "title": "Pull",
-                "icon": "$(arrow-down)"
-            },
-            {
-                "category": "Git Buttons",
-                "command": "git-buttons.pullRebase",
-                "title": "Pull (Rebase)",
-                "icon": "$(arrow-small-down)"
-            },
-            {
-                "category": "Git Buttons",
-                "command": "git-buttons.pullFrom",
-                "title": "Pull from...",
-                "icon": "$(cloud-download)"
-            },
-            {
-                "category": "Git Buttons",
-                "command": "git-buttons.push",
-                "title": "Push",
-                "icon": "$(arrow-up)"
-            },
-            {
-                "category": "Git Buttons",
-                "command": "git-buttons.pushTo",
-                "title": "Push to...",
-                "icon": "$(cloud-upload)"
-            },
-            {
-                "category": "Git Buttons",
                 "command": "git-buttons.checkout",
                 "title": "Checkout to...",
                 "icon": "$(git-commit)"
             },
             {
                 "category": "Git Buttons",
-                "command": "git-buttons.publish",
-                "title": "Publish branch...",
-                "icon": "$(live-share)"
+                "command": "git-buttons.cleanAll",
+                "title": "Discard All Changes",
+                "icon": "$(clear-all)"
             },
             {
                 "category": "Git Buttons",
@@ -262,15 +232,45 @@
             },
             {
                 "category": "Git Buttons",
-                "command": "git-buttons.undoCommit",
-                "title": "Undo Commit",
-                "icon": "$(history)"
+                "command": "git-buttons.publish",
+                "title": "Publish branch...",
+                "icon": "$(live-share)"
             },
             {
                 "category": "Git Buttons",
-                "command": "git-buttons.cleanAll",
-                "title": "Discard All Changes",
-                "icon": "$(clear-all)"
+                "command": "git-buttons.pull",
+                "title": "Pull",
+                "icon": "$(arrow-down)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.pullFrom",
+                "title": "Pull from...",
+                "icon": "$(cloud-download)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.pullRebase",
+                "title": "Pull (Rebase)",
+                "icon": "$(arrow-small-down)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.push",
+                "title": "Push",
+                "icon": "$(arrow-up)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.pushTo",
+                "title": "Push to...",
+                "icon": "$(cloud-upload)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.showOutput",
+                "title": "Show Git Output",
+                "icon": "$(terminal)"
             },
             {
                 "category": "Git Buttons",
@@ -280,20 +280,20 @@
             },
             {
                 "category": "Git Buttons",
-                "command": "git-buttons.unstageAll",
-                "title": "Unstage All Changes",
-                "icon": "$(diff-removed)"
-            },
-            {
-                "category": "Git Buttons",
-                "command": "git-buttons.stashApplyLatest",
-                "title": "Apply Latest Stash",
-                "icon": "$(repo-clone)"
+                "command": "git-buttons.stash",
+                "title": "Stash",
+                "icon": "$(repo-push)"
             },
             {
                 "category": "Git Buttons",
                 "command": "git-buttons.stashApply",
                 "title": "Apply Stash...",
+                "icon": "$(repo-clone)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.stashApplyLatest",
+                "title": "Apply Latest Stash",
                 "icon": "$(repo-clone)"
             },
             {
@@ -304,9 +304,9 @@
             },
             {
                 "category": "Git Buttons",
-                "command": "git-buttons.stashPopLatest",
-                "title": "Pop Latest Stash",
-                "icon": "$(repo-pull)"
+                "command": "git-buttons.stashIncludeUntacked",
+                "title": "Stash (Include Untracked)",
+                "icon": "$(repo-force-push)"
             },
             {
                 "category": "Git Buttons",
@@ -316,21 +316,9 @@
             },
             {
                 "category": "Git Buttons",
-                "command": "git-buttons.stash",
-                "title": "Stash",
-                "icon": "$(repo-push)"
-            },
-            {
-                "category": "Git Buttons",
-                "command": "git-buttons.stashIncludeUntacked",
-                "title": "Stash (Include Untracked)",
-                "icon": "$(repo-force-push)"
-            },
-            {
-                "category": "Git Buttons",
-                "command": "git-buttons.showOutput",
-                "title": "Show Git Output",
-                "icon": "$(terminal)"
+                "command": "git-buttons.stashPopLatest",
+                "title": "Pop Latest Stash",
+                "icon": "$(repo-pull)"
             },
             {
                 "category": "Git Buttons",
@@ -343,6 +331,18 @@
                 "command": "git-buttons.syncRebase",
                 "title": "Sync (Rebase)",
                 "icon": "$(sync)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.undoCommit",
+                "title": "Undo Commit",
+                "icon": "$(history)"
+            },
+            {
+                "category": "Git Buttons",
+                "command": "git-buttons.unstageAll",
+                "title": "Unstage All Changes",
+                "icon": "$(diff-removed)"
             }
         ],
         "menus": {
@@ -486,6 +486,7 @@
         }
     },
     "scripts": {
+        "refresh": "node ./generator/index.js",
         "vscode:prepublish": "npm run compile",
         "compile": "webpack --mode production --config ./webpack.config.js",
         "watch": "webpack --mode development --watch --config ./webpack.config.js",
@@ -500,6 +501,7 @@
         "@typescript-eslint/parser": "^4.26.1",
         "eslint": "^7.28.0",
         "fork-ts-checker-webpack-plugin": "^6.2.10",
+        "got": "^11.8.2",
         "lockfile-lint": "^4.6.2",
         "thread-loader": "^3.0.4",
         "ts-loader": "^9.2.3",
