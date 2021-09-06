@@ -16,7 +16,8 @@ const fs = require('fs').promises;
 
 
     const { commands } = packageJson.contributes;
-    packageJson.contributes.commands = body.contributes.commands
+
+    const gitCommands = body.contributes.commands
       .filter(obj => obj.command.split('.').length < 3)
       .map(obj => {
         const result = {
@@ -28,22 +29,61 @@ const fs = require('fs').promises;
         return result;
       });
 
-    packageJson.contributes.menus['scm/title'] = packageJson.contributes.commands.map((obj, index) => ({
-      when: `scmProvider == git && config.${obj.command}`,
-      command: obj.command,
-      'group': `navigation@${index}`
-    }));
+    packageJson.contributes.commands = [
+      {
+        'title': 'Pull Context',
+        'command': 'git-buttons.pullContext',
+        'category': 'Git Buttons',
+        'icon': '$(arrow-down)'
+      },
+      {
+        'title': 'Push Context',
+        'command': 'git-buttons.pushContext',
+        'category': 'Git Buttons',
+        'icon': '$(arrow-up)'
+      },
+      ...gitCommands
+    ];
 
-    packageJson.contributes.configuration[0].properties = packageJson.contributes.commands.reduce((acc, curr) => {
+    packageJson.contributes.menus['scm/title'] = [
+      {
+        'command': 'git-buttons.pullContext',
+        'when': 'gitOpenRepositoryCount > 1 && config.git-buttons.pullContext',
+        'group': 'navigation@2'
+      },
+      {
+        'command': 'git-buttons.pushContext',
+        'when': 'gitOpenRepositoryCount > 1 && config.git-buttons.pushContext',
+        'group': 'navigation@3'
+      },
+      ...gitCommands.map((obj, index) => ({
+        when: `scmProvider == git && config.${obj.command}`,
+        command: obj.command,
+        'group': `navigation@${index + 4}`
+      }))];
 
-      acc[curr.command] = {
-        'type': 'boolean',
-        'default': false,
-        'description': curr.title
-      };
+    packageJson.contributes.menus.commandPalette = packageJson.contributes.menus['scm/title']
+      .map(obj => ({
+        command: obj.command,
+        when: 'false',
+      }));
 
-      return acc;
-    }, {});
+    packageJson.contributes.configuration[0].properties['git-buttons'].default = packageJson.contributes.commands
+      .reduce((acc, curr) => {
+        acc[curr.command.slice('git-buttons.'.length)] = false;
+        return acc;
+      }, {});
+
+    packageJson.contributes.configuration[0].properties['git-buttons'].properties = packageJson.contributes.commands
+      .reduce((acc, curr) => {
+        acc[curr.command.slice('git-buttons.'.length)] = {
+          'type': 'boolean',
+          'default': false,
+          'description': curr.title
+        };
+
+        return acc;
+      }, {});
 
     await fs.writeFile(path, JSON.stringify(packageJson, null, 4));
 
