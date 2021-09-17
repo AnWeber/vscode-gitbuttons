@@ -48,17 +48,17 @@ const fs = require('fs').promises;
     packageJson.contributes.menus['scm/title'] = [
       {
         'command': 'git-buttons.pullContext',
-        'when': 'gitOpenRepositoryCount > 1 && config.git-buttons.pullContext',
+        'when': 'scmProvider == git && config.git-buttons.pullContext',
         'group': 'navigation@2'
       },
       {
         'command': 'git-buttons.pushContext',
-        'when': 'gitOpenRepositoryCount > 1 && config.git-buttons.pushContext',
+        'when': 'scmProvider == git && config.git-buttons.pushContext',
         'group': 'navigation@3'
       },
       ...gitCommands.map((obj, index) => ({
-        when: `scmProvider == git && config.${obj.command}`,
         command: obj.command,
+        when: `scmProvider == git && config.${obj.command}`,
         'group': `navigation@${index + 4}`
       }))];
 

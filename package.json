@@ -1,7 +1,7 @@
 {
     "name": "git-buttons",
     "publisher": "anweber",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "description": "Git Git Buttons for Visual Studio Code",
     "displayName": "Git Buttons",
     "main": "dist/extension.js",
@@ -1130,447 +1130,447 @@
             "scm/title": [
                 {
                     "command": "git-buttons.pullContext",
-                    "when": "gitOpenRepositoryCount > 1 && config.git-buttons.pullContext",
+                    "when": "scmProvider == git && config.git-buttons.pullContext",
                     "group": "navigation@2"
                 },
                 {
                     "command": "git-buttons.pushContext",
-                    "when": "gitOpenRepositoryCount > 1 && config.git-buttons.pushContext",
+                    "when": "scmProvider == git && config.git-buttons.pushContext",
                     "group": "navigation@3"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.setLogLevel",
                     "command": "git-buttons.setLogLevel",
+                    "when": "scmProvider == git && config.git-buttons.setLogLevel",
                     "group": "navigation@4"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.clone",
                     "command": "git-buttons.clone",
+                    "when": "scmProvider == git && config.git-buttons.clone",
                     "group": "navigation@5"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.cloneRecursive",
                     "command": "git-buttons.cloneRecursive",
+                    "when": "scmProvider == git && config.git-buttons.cloneRecursive",
                     "group": "navigation@6"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.init",
                     "command": "git-buttons.init",
+                    "when": "scmProvider == git && config.git-buttons.init",
                     "group": "navigation@7"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.openRepository",
                     "command": "git-buttons.openRepository",
+                    "when": "scmProvider == git && config.git-buttons.openRepository",
                     "group": "navigation@8"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.close",
                     "command": "git-buttons.close",
+                    "when": "scmProvider == git && config.git-buttons.close",
                     "group": "navigation@9"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.refresh",
                     "command": "git-buttons.refresh",
+                    "when": "scmProvider == git && config.git-buttons.refresh",
                     "group": "navigation@10"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.openChange",
                     "command": "git-buttons.openChange",
+                    "when": "scmProvider == git && config.git-buttons.openChange",
                     "group": "navigation@11"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.openAllChanges",
                     "command": "git-buttons.openAllChanges",
+                    "when": "scmProvider == git && config.git-buttons.openAllChanges",
                     "group": "navigation@12"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.openFile",
                     "command": "git-buttons.openFile",
+                    "when": "scmProvider == git && config.git-buttons.openFile",
                     "group": "navigation@13"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.openFile2",
                     "command": "git-buttons.openFile2",
+                    "when": "scmProvider == git && config.git-buttons.openFile2",
                     "group": "navigation@14"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.openHEADFile",
                     "command": "git-buttons.openHEADFile",
+                    "when": "scmProvider == git && config.git-buttons.openHEADFile",
                     "group": "navigation@15"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.stage",
                     "command": "git-buttons.stage",
+                    "when": "scmProvider == git && config.git-buttons.stage",
                     "group": "navigation@16"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.stageAll",
                     "command": "git-buttons.stageAll",
+                    "when": "scmProvider == git && config.git-buttons.stageAll",
                     "group": "navigation@17"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.stageAllTracked",
                     "command": "git-buttons.stageAllTracked",
+                    "when": "scmProvider == git && config.git-buttons.stageAllTracked",
                     "group": "navigation@18"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.stageAllUntracked",
                     "command": "git-buttons.stageAllUntracked",
+                    "when": "scmProvider == git && config.git-buttons.stageAllUntracked",
                     "group": "navigation@19"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.stageAllMerge",
                     "command": "git-buttons.stageAllMerge",
+                    "when": "scmProvider == git && config.git-buttons.stageAllMerge",
                     "group": "navigation@20"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.stageSelectedRanges",
                     "command": "git-buttons.stageSelectedRanges",
+                    "when": "scmProvider == git && config.git-buttons.stageSelectedRanges",
                     "group": "navigation@21"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.revertSelectedRanges",
                     "command": "git-buttons.revertSelectedRanges",
+                    "when": "scmProvider == git && config.git-buttons.revertSelectedRanges",
                     "group": "navigation@22"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.stageChange",
                     "command": "git-buttons.stageChange",
+                    "when": "scmProvider == git && config.git-buttons.stageChange",
                     "group": "navigation@23"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.revertChange",
                     "command": "git-buttons.revertChange",
+                    "when": "scmProvider == git && config.git-buttons.revertChange",
                     "group": "navigation@24"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.unstage",
                     "command": "git-buttons.unstage",
+                    "when": "scmProvider == git && config.git-buttons.unstage",
                     "group": "navigation@25"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.unstageAll",
                     "command": "git-buttons.unstageAll",
+                    "when": "scmProvider == git && config.git-buttons.unstageAll",
                     "group": "navigation@26"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.unstageSelectedRanges",
                     "command": "git-buttons.unstageSelectedRanges",
+                    "when": "scmProvider == git && config.git-buttons.unstageSelectedRanges",
                     "group": "navigation@27"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.clean",
                     "command": "git-buttons.clean",
+                    "when": "scmProvider == git && config.git-buttons.clean",
                     "group": "navigation@28"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.cleanAll",
                     "command": "git-buttons.cleanAll",
+                    "when": "scmProvider == git && config.git-buttons.cleanAll",
                     "group": "navigation@29"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.cleanAllTracked",
                     "command": "git-buttons.cleanAllTracked",
+                    "when": "scmProvider == git && config.git-buttons.cleanAllTracked",
                     "group": "navigation@30"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.cleanAllUntracked",
                     "command": "git-buttons.cleanAllUntracked",
+                    "when": "scmProvider == git && config.git-buttons.cleanAllUntracked",
                     "group": "navigation@31"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.rename",
                     "command": "git-buttons.rename",
+                    "when": "scmProvider == git && config.git-buttons.rename",
                     "group": "navigation@32"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.commit",
                     "command": "git-buttons.commit",
+                    "when": "scmProvider == git && config.git-buttons.commit",
                     "group": "navigation@33"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.commitStaged",
                     "command": "git-buttons.commitStaged",
+                    "when": "scmProvider == git && config.git-buttons.commitStaged",
                     "group": "navigation@34"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.commitEmpty",
                     "command": "git-buttons.commitEmpty",
+                    "when": "scmProvider == git && config.git-buttons.commitEmpty",
                     "group": "navigation@35"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.commitStagedSigned",
                     "command": "git-buttons.commitStagedSigned",
+                    "when": "scmProvider == git && config.git-buttons.commitStagedSigned",
                     "group": "navigation@36"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.commitStagedAmend",
                     "command": "git-buttons.commitStagedAmend",
+                    "when": "scmProvider == git && config.git-buttons.commitStagedAmend",
                     "group": "navigation@37"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.commitAll",
                     "command": "git-buttons.commitAll",
+                    "when": "scmProvider == git && config.git-buttons.commitAll",
                     "group": "navigation@38"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.commitAllSigned",
                     "command": "git-buttons.commitAllSigned",
+                    "when": "scmProvider == git && config.git-buttons.commitAllSigned",
                     "group": "navigation@39"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.commitAllAmend",
                     "command": "git-buttons.commitAllAmend",
+                    "when": "scmProvider == git && config.git-buttons.commitAllAmend",
                     "group": "navigation@40"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.commitNoVerify",
                     "command": "git-buttons.commitNoVerify",
+                    "when": "scmProvider == git && config.git-buttons.commitNoVerify",
                     "group": "navigation@41"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.commitStagedNoVerify",
                     "command": "git-buttons.commitStagedNoVerify",
+                    "when": "scmProvider == git && config.git-buttons.commitStagedNoVerify",
                     "group": "navigation@42"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.commitEmptyNoVerify",
                     "command": "git-buttons.commitEmptyNoVerify",
+                    "when": "scmProvider == git && config.git-buttons.commitEmptyNoVerify",
                     "group": "navigation@43"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.commitStagedSignedNoVerify",
                     "command": "git-buttons.commitStagedSignedNoVerify",
+                    "when": "scmProvider == git && config.git-buttons.commitStagedSignedNoVerify",
                     "group": "navigation@44"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.commitStagedAmendNoVerify",
                     "command": "git-buttons.commitStagedAmendNoVerify",
+                    "when": "scmProvider == git && config.git-buttons.commitStagedAmendNoVerify",
                     "group": "navigation@45"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.commitAllNoVerify",
                     "command": "git-buttons.commitAllNoVerify",
+                    "when": "scmProvider == git && config.git-buttons.commitAllNoVerify",
                     "group": "navigation@46"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.commitAllSignedNoVerify",
                     "command": "git-buttons.commitAllSignedNoVerify",
+                    "when": "scmProvider == git && config.git-buttons.commitAllSignedNoVerify",
                     "group": "navigation@47"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.commitAllAmendNoVerify",
                     "command": "git-buttons.commitAllAmendNoVerify",
+                    "when": "scmProvider == git && config.git-buttons.commitAllAmendNoVerify",
                     "group": "navigation@48"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.restoreCommitTemplate",
                     "command": "git-buttons.restoreCommitTemplate",
+                    "when": "scmProvider == git && config.git-buttons.restoreCommitTemplate",
                     "group": "navigation@49"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.undoCommit",
                     "command": "git-buttons.undoCommit",
+                    "when": "scmProvider == git && config.git-buttons.undoCommit",
                     "group": "navigation@50"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.checkout",
                     "command": "git-buttons.checkout",
+                    "when": "scmProvider == git && config.git-buttons.checkout",
                     "group": "navigation@51"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.checkoutDetached",
                     "command": "git-buttons.checkoutDetached",
+                    "when": "scmProvider == git && config.git-buttons.checkoutDetached",
                     "group": "navigation@52"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.branch",
                     "command": "git-buttons.branch",
+                    "when": "scmProvider == git && config.git-buttons.branch",
                     "group": "navigation@53"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.branchFrom",
                     "command": "git-buttons.branchFrom",
+                    "when": "scmProvider == git && config.git-buttons.branchFrom",
                     "group": "navigation@54"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.deleteBranch",
                     "command": "git-buttons.deleteBranch",
+                    "when": "scmProvider == git && config.git-buttons.deleteBranch",
                     "group": "navigation@55"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.renameBranch",
                     "command": "git-buttons.renameBranch",
+                    "when": "scmProvider == git && config.git-buttons.renameBranch",
                     "group": "navigation@56"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.merge",
                     "command": "git-buttons.merge",
+                    "when": "scmProvider == git && config.git-buttons.merge",
                     "group": "navigation@57"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.rebase",
                     "command": "git-buttons.rebase",
+                    "when": "scmProvider == git && config.git-buttons.rebase",
                     "group": "navigation@58"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.createTag",
                     "command": "git-buttons.createTag",
+                    "when": "scmProvider == git && config.git-buttons.createTag",
                     "group": "navigation@59"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.deleteTag",
                     "command": "git-buttons.deleteTag",
+                    "when": "scmProvider == git && config.git-buttons.deleteTag",
                     "group": "navigation@60"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.fetch",
                     "command": "git-buttons.fetch",
+                    "when": "scmProvider == git && config.git-buttons.fetch",
                     "group": "navigation@61"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.fetchPrune",
                     "command": "git-buttons.fetchPrune",
+                    "when": "scmProvider == git && config.git-buttons.fetchPrune",
                     "group": "navigation@62"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.fetchAll",
                     "command": "git-buttons.fetchAll",
+                    "when": "scmProvider == git && config.git-buttons.fetchAll",
                     "group": "navigation@63"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.pull",
                     "command": "git-buttons.pull",
+                    "when": "scmProvider == git && config.git-buttons.pull",
                     "group": "navigation@64"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.pullRebase",
                     "command": "git-buttons.pullRebase",
+                    "when": "scmProvider == git && config.git-buttons.pullRebase",
                     "group": "navigation@65"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.pullFrom",
                     "command": "git-buttons.pullFrom",
+                    "when": "scmProvider == git && config.git-buttons.pullFrom",
                     "group": "navigation@66"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.push",
                     "command": "git-buttons.push",
+                    "when": "scmProvider == git && config.git-buttons.push",
                     "group": "navigation@67"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.pushForce",
                     "command": "git-buttons.pushForce",
+                    "when": "scmProvider == git && config.git-buttons.pushForce",
                     "group": "navigation@68"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.pushTo",
                     "command": "git-buttons.pushTo",
+                    "when": "scmProvider == git && config.git-buttons.pushTo",
                     "group": "navigation@69"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.pushToForce",
                     "command": "git-buttons.pushToForce",
+                    "when": "scmProvider == git && config.git-buttons.pushToForce",
                     "group": "navigation@70"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.pushTags",
                     "command": "git-buttons.pushTags",
+                    "when": "scmProvider == git && config.git-buttons.pushTags",
                     "group": "navigation@71"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.pushWithTags",
                     "command": "git-buttons.pushWithTags",
+                    "when": "scmProvider == git && config.git-buttons.pushWithTags",
                     "group": "navigation@72"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.pushWithTagsForce",
                     "command": "git-buttons.pushWithTagsForce",
+                    "when": "scmProvider == git && config.git-buttons.pushWithTagsForce",
                     "group": "navigation@73"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.cherryPick",
                     "command": "git-buttons.cherryPick",
+                    "when": "scmProvider == git && config.git-buttons.cherryPick",
                     "group": "navigation@74"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.addRemote",
                     "command": "git-buttons.addRemote",
+                    "when": "scmProvider == git && config.git-buttons.addRemote",
                     "group": "navigation@75"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.removeRemote",
                     "command": "git-buttons.removeRemote",
+                    "when": "scmProvider == git && config.git-buttons.removeRemote",
                     "group": "navigation@76"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.sync",
                     "command": "git-buttons.sync",
+                    "when": "scmProvider == git && config.git-buttons.sync",
                     "group": "navigation@77"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.syncRebase",
                     "command": "git-buttons.syncRebase",
+                    "when": "scmProvider == git && config.git-buttons.syncRebase",
                     "group": "navigation@78"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.publish",
                     "command": "git-buttons.publish",
+                    "when": "scmProvider == git && config.git-buttons.publish",
                     "group": "navigation@79"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.showOutput",
                     "command": "git-buttons.showOutput",
+                    "when": "scmProvider == git && config.git-buttons.showOutput",
                     "group": "navigation@80"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.ignore",
                     "command": "git-buttons.ignore",
+                    "when": "scmProvider == git && config.git-buttons.ignore",
                     "group": "navigation@81"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.revealInExplorer",
                     "command": "git-buttons.revealInExplorer",
+                    "when": "scmProvider == git && config.git-buttons.revealInExplorer",
                     "group": "navigation@82"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.stashIncludeUntracked",
                     "command": "git-buttons.stashIncludeUntracked",
+                    "when": "scmProvider == git && config.git-buttons.stashIncludeUntracked",
                     "group": "navigation@83"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.stash",
                     "command": "git-buttons.stash",
+                    "when": "scmProvider == git && config.git-buttons.stash",
                     "group": "navigation@84"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.stashPop",
                     "command": "git-buttons.stashPop",
+                    "when": "scmProvider == git && config.git-buttons.stashPop",
                     "group": "navigation@85"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.stashPopLatest",
                     "command": "git-buttons.stashPopLatest",
+                    "when": "scmProvider == git && config.git-buttons.stashPopLatest",
                     "group": "navigation@86"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.stashApply",
                     "command": "git-buttons.stashApply",
+                    "when": "scmProvider == git && config.git-buttons.stashApply",
                     "group": "navigation@87"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.stashApplyLatest",
                     "command": "git-buttons.stashApplyLatest",
+                    "when": "scmProvider == git && config.git-buttons.stashApplyLatest",
                     "group": "navigation@88"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.stashDrop",
                     "command": "git-buttons.stashDrop",
+                    "when": "scmProvider == git && config.git-buttons.stashDrop",
                     "group": "navigation@89"
                 },
                 {
-                    "when": "scmProvider == git && config.git-buttons.rebaseAbort",
                     "command": "git-buttons.rebaseAbort",
+                    "when": "scmProvider == git && config.git-buttons.rebaseAbort",
                     "group": "navigation@90"
                 }
             ],
