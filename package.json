@@ -1,7 +1,7 @@
 {
     "name": "git-buttons",
     "publisher": "anweber",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Git Buttons for Visual Studio Code",
     "displayName": "Git Buttons",
     "main": "dist/extension.js",
@@ -1940,7 +1940,7 @@
         "vscode:prepublish": "npm run compile && npm run compile-web",
         "compile": "esbuild ./src/extension.ts --bundle --outdir=dist/ --minify --sourcemap --platform=node --external:vscode --format=cjs",
         "watch": "npm run compile -- --watch",
-        "compile-web": "esbuild ./src/extension.ts --bundle --outfile=dist/browser.js --sourcemap --platform=browser --external:vscode",
+        "compile-web": "esbuild ./src/extension.ts --bundle --outfile=dist/browser.js --sourcemap --platform=browser --format=cjs --external:vscode",
         "watch-web": "npm run compile-web -- --watch",
         "lockfile-lint": "lockfile-lint --path package-lock.json --validate-https --allowed-hosts npm --validate-checksum --validate-integrity",
         "eslint": "eslint src --ext ts",

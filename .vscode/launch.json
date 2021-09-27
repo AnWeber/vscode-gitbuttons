@@ -11,7 +11,8 @@
 		},
 		{
 			"name": "Run Browser Extension",
-			"type": "extensionHost",
+      "type": "pwa-extensionHost",
+      "debugWebWorkerHost": true,
 			"request": "launch",
 			"runtimeExecutable": "${execPath}",
 			"args": [
