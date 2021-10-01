@@ -27,6 +27,14 @@ const fs = require('fs').promises;
         };
         result.icon = commands.find(c => c.command === result.command)?.icon || '$(question)';
         return result;
+      }).sort((obj1, obj2) => {
+        if (obj1.command < obj2.command) {
+          return -1;
+        }
+        if (obj1.command > obj2.command) {
+          return 1;
+        }
+        return 0;
       });
 
     packageJson.contributes.commands = [
@@ -45,57 +53,12 @@ const fs = require('fs').promises;
       ...gitCommands
     ];
 
-    packageJson.contributes.menus['scm/title'] = [
-      {
-        'command': 'git-buttons.pullContext',
-        'when': 'gitOpenRepositoryCount > 1 && config.git-buttons.pullContext',
-        'group': 'navigation@2'
-      },
-      {
-        'command': 'git-buttons.pushContext',
-        'when': 'gitOpenRepositoryCount > 1 && config.git-buttons.pushContext',
-        'group': 'navigation@3'
-      },
-      {
-        'command': 'git-buttons.pull',
-        'when': 'gitOpenRepositoryCount == 1 && config.git-buttons.pullContext || config.git-buttons.pull',
-        'group': 'navigation@2'
-      },
-      {
-        'command': 'git-buttons.push',
-        'when': 'gitOpenRepositoryCount == 1 && config.git-buttons.pushContext || config.git-buttons.push',
-        'group': 'navigation@3'
-      },
-      ...gitCommands
-        .filter(obj => ['git-buttons.pull', 'git-buttons.push'].indexOf(obj.command) < 0)
-        .map((obj, index) => ({
-          command: obj.command,
-          when: `scmProvider == git && config.${obj.command}`,
-          'group': `navigation@${index + 4}`
-        }))];
+    packageJson.contributes.menus['scm/title'] = createTitleMenuEntries(gitCommands, 'git-buttons', '');
+    packageJson.contributes.menus['view/title'] = createTitleMenuEntries(gitCommands, 'git-buttons-fileview', 'view == workbench.explorer.fileView && ');
 
-    packageJson.contributes.menus.commandPalette = packageJson.contributes.menus['scm/title']
-      .map(obj => ({
-        command: obj.command,
-        when: 'false',
-      }));
-
-    packageJson.contributes.configuration[0].properties['git-buttons'].default = packageJson.contributes.commands
-      .reduce((acc, curr) => {
-        acc[curr.command.slice('git-buttons.'.length)] = false;
-        return acc;
-      }, {});
-
-    packageJson.contributes.configuration[0].properties['git-buttons'].properties = packageJson.contributes.commands
-      .reduce((acc, curr) => {
-        acc[curr.command.slice('git-buttons.'.length)] = {
-          'type': 'boolean',
-          'default': false,
-          'description': curr.title
-        };
-
-        return acc;
-      }, {});
+    hideCommandsInCommandPalette(packageJson);
+    addConfigurationJson(packageJson.contributes.configuration[0].properties['git-buttons'], packageJson);
+    addConfigurationJson(packageJson.contributes.configuration[0].properties['git-buttons-fileview'], packageJson);
 
     await fs.writeFile(path, JSON.stringify(packageJson, null, 4));
 
@@ -104,3 +67,64 @@ const fs = require('fs').promises;
   }
 
 }());
+
+function createTitleMenuEntries(gitCommands, configKey, whenCondition) {
+  const commandPrefixLength = 'git-buttons.'.length;
+  return [
+    {
+      'command': 'git-buttons.pullContext',
+      'when': `${whenCondition}gitOpenRepositoryCount > 1 && config.${configKey}.pullContext)`,
+      'group': 'navigation@2'
+    },
+    {
+      'command': 'git-buttons.pushContext',
+      'when': `${whenCondition}gitOpenRepositoryCount > 1 && config.${configKey}.pushContext`,
+      'group': 'navigation@3'
+    },
+    {
+      'command': 'git-buttons.pull',
+      'when': `${whenCondition}gitOpenRepositoryCount == 1 && config.${configKey}.pullContext || ${whenCondition}config.${configKey}.pull`,
+      'group': 'navigation@2'
+    },
+    {
+      'command': 'git-buttons.push',
+      'when': `${whenCondition}gitOpenRepositoryCount == 1 && config.${configKey}.pushContext || ${whenCondition}config.${configKey}.push`,
+      'group': 'navigation@3'
+    },
+    ...gitCommands
+      .filter(obj => ['git-buttons.pull', 'git-buttons.push'].indexOf(obj.command) < 0)
+      .map((obj, index) => ({
+        command: obj.command,
+        when: `${whenCondition}gitOpenRepositoryCount >= 1 && config.${configKey}.${obj.command.slice(commandPrefixLength)}`,
+        'group': `navigation@${index + 4}`
+      }))
+  ];
+}
+
+function hideCommandsInCommandPalette(packageJson) {
+  packageJson.contributes.menus.commandPalette = packageJson.contributes.commands
+    .map(obj => ({
+      command: obj.command,
+      when: 'false',
+    }));
+}
+
+function addConfigurationJson(configuration, packageJson) {
+  const commandPrefixLength = 'git-buttons.'.length;
+  configuration.default = packageJson.contributes.commands
+    .reduce((acc, curr) => {
+      acc[curr.command.slice(commandPrefixLength)] = false;
+      return acc;
+    }, {});
+
+  configuration.properties = packageJson.contributes.commands
+    .reduce((acc, curr) => {
+      acc[curr.command.slice(commandPrefixLength)] = {
+        'type': 'boolean',
+        'default': false,
+        'description': curr.title
+      };
+
+      return acc;
+    }, {});
+}
