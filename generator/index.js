@@ -73,7 +73,7 @@ function createTitleMenuEntries(gitCommands, configKey, whenCondition) {
   return [
     {
       'command': 'git-buttons.pullContext',
-      'when': `${whenCondition}gitOpenRepositoryCount > 1 && config.${configKey}.pullContext)`,
+      'when': `${whenCondition}gitOpenRepositoryCount > 1 && config.${configKey}.pullContext`,
       'group': 'navigation@2'
     },
     {

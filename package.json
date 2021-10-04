@@ -1,7 +1,7 @@
 {
     "name": "git-buttons",
     "publisher": "anweber",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "description": "Git Buttons for Visual Studio Code",
     "displayName": "Git Buttons",
     "main": "dist/extension.js",
@@ -1675,7 +1675,7 @@
             "scm/title": [
                 {
                     "command": "git-buttons.pullContext",
-                    "when": "gitOpenRepositoryCount > 1 && config.git-buttons.pullContext)",
+                    "when": "gitOpenRepositoryCount > 1 && config.git-buttons.pullContext",
                     "group": "navigation@2"
                 },
                 {
@@ -2480,7 +2480,7 @@
             "view/title": [
                 {
                     "command": "git-buttons.pullContext",
-                    "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount > 1 && config.git-buttons-fileview.pullContext)",
+                    "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount > 1 && config.git-buttons-fileview.pullContext",
                     "group": "navigation@2"
                 },
                 {
