@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-const got = require('got');
 const fs = require('fs').promises;
 
 
@@ -9,7 +8,7 @@ const fs = require('fs').promises;
 
   try {
     const path = './package.json';
-    const body = await got('https://raw.githubusercontent.com/microsoft/vscode/main/extensions/git/package.json').json();
+    const body = await (await import('got')).got('https://raw.githubusercontent.com/microsoft/vscode/main/extensions/git/package.json').json();
 
 
     const packageJson = JSON.parse(await fs.readFile(path, 'utf-8'));
