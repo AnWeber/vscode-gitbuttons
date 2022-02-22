@@ -28,6 +28,13 @@ export function activate(context: vscode.ExtensionContext) : void {
           }
         };
 
+      } else if (command.command.startsWith('git-buttons.conflict')) {
+        const vscodeCommand = command.command
+          .replace('git-buttons.conflict', 'merge-conflict')
+          .replace(/_/gu, '.');
+        commandFactory = (...args: {rootUri?: vscode.Uri}[]) => {
+          vscode.commands.executeCommand(vscodeCommand, getRootUri(args));
+        };
       } else if (command.command.startsWith('git-buttons.')) {
         const vscodeCommand = command.command.replace('-buttons', '');
         commandFactory = (...args: {rootUri?: vscode.Uri}[]) => {

@@ -1155,6 +1155,58 @@
                             "unstageAll": false,
                             "unstageSelectedRanges": false
                         }
+                    },
+                    "git-buttons-conflict": {
+                        "title": "Merge-Conflict Buttons in Editor Title",
+                        "description": "Buttons to show in Editor Title",
+                        "type": "object",
+                        "properties": {
+                            "conflict_accept_all-both": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "merge-conflict.accept.all-both"
+                            },
+                            "conflict_accept_all-current": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "merge-conflict.accept.all-current"
+                            },
+                            "conflict_accept_all-incoming": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "merge-conflict.accept.all-incoming"
+                            },
+                            "conflict_accept_both": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "merge-conflict.accept.both"
+                            },
+                            "conflict_accept_current": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "merge-conflict.accept.current"
+                            },
+                            "conflict_accept_incoming": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "merge-conflict.accept.incoming"
+                            },
+                            "conflict_accept_selection": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "merge-conflict.accept.selection"
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "conflict_accept_all-both": false,
+                            "conflict_accept_all-current": false,
+                            "conflict_accept_all-incoming": false,
+                            "conflict_accept_both": false,
+                            "conflict_accept_current": false,
+                            "conflict_accept_incoming": false,
+                            "conflict_accept_selection": false
+                        }
                     }
                 }
             }
@@ -1705,6 +1757,48 @@
                 "command": "git-buttons.unstageSelectedRanges",
                 "category": "Git Buttons",
                 "icon": "$(diff-removed)"
+            },
+            {
+                "title": "merge-conflict.accept.all-both",
+                "command": "git-buttons.conflict_accept_all-both",
+                "category": "Git Buttons",
+                "icon": "$(question)"
+            },
+            {
+                "title": "merge-conflict.accept.all-current",
+                "command": "git-buttons.conflict_accept_all-current",
+                "category": "Git Buttons",
+                "icon": "$(question)"
+            },
+            {
+                "title": "merge-conflict.accept.all-incoming",
+                "command": "git-buttons.conflict_accept_all-incoming",
+                "category": "Git Buttons",
+                "icon": "$(question)"
+            },
+            {
+                "title": "merge-conflict.accept.both",
+                "command": "git-buttons.conflict_accept_both",
+                "category": "Git Buttons",
+                "icon": "$(question)"
+            },
+            {
+                "title": "merge-conflict.accept.current",
+                "command": "git-buttons.conflict_accept_current",
+                "category": "Git Buttons",
+                "icon": "$(question)"
+            },
+            {
+                "title": "merge-conflict.accept.incoming",
+                "command": "git-buttons.conflict_accept_incoming",
+                "category": "Git Buttons",
+                "icon": "$(question)"
+            },
+            {
+                "title": "merge-conflict.accept.selection",
+                "command": "git-buttons.conflict_accept_selection",
+                "category": "Git Buttons",
+                "icon": "$(question)"
             }
         ],
         "menus": {
@@ -2529,6 +2623,34 @@
                 {
                     "command": "git-buttons.unstageSelectedRanges",
                     "when": "false"
+                },
+                {
+                    "command": "git-buttons.conflict_accept_all-both",
+                    "when": "false"
+                },
+                {
+                    "command": "git-buttons.conflict_accept_all-current",
+                    "when": "false"
+                },
+                {
+                    "command": "git-buttons.conflict_accept_all-incoming",
+                    "when": "false"
+                },
+                {
+                    "command": "git-buttons.conflict_accept_both",
+                    "when": "false"
+                },
+                {
+                    "command": "git-buttons.conflict_accept_current",
+                    "when": "false"
+                },
+                {
+                    "command": "git-buttons.conflict_accept_incoming",
+                    "when": "false"
+                },
+                {
+                    "command": "git-buttons.conflict_accept_selection",
+                    "when": "false"
                 }
             ],
             "view/title": [
@@ -2986,6 +3108,43 @@
                     "command": "git-buttons.unstageSelectedRanges",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.unstageSelectedRanges",
                     "group": "navigation@90"
+                }
+            ],
+            "editor/title": [
+                {
+                    "command": "git-buttons.conflict_accept_all-both",
+                    "when": "mergeConflictsCount && mergeConflictsCount != 0 && config.git-buttons-conflict.conflict_accept_all-both",
+                    "group": "navigation@4"
+                },
+                {
+                    "command": "git-buttons.conflict_accept_all-current",
+                    "when": "mergeConflictsCount && mergeConflictsCount != 0 && config.git-buttons-conflict.conflict_accept_all-current",
+                    "group": "navigation@5"
+                },
+                {
+                    "command": "git-buttons.conflict_accept_all-incoming",
+                    "when": "mergeConflictsCount && mergeConflictsCount != 0 && config.git-buttons-conflict.conflict_accept_all-incoming",
+                    "group": "navigation@6"
+                },
+                {
+                    "command": "git-buttons.conflict_accept_both",
+                    "when": "mergeConflictsCount && mergeConflictsCount != 0 && config.git-buttons-conflict.conflict_accept_both",
+                    "group": "navigation@7"
+                },
+                {
+                    "command": "git-buttons.conflict_accept_current",
+                    "when": "mergeConflictsCount && mergeConflictsCount != 0 && config.git-buttons-conflict.conflict_accept_current",
+                    "group": "navigation@8"
+                },
+                {
+                    "command": "git-buttons.conflict_accept_incoming",
+                    "when": "mergeConflictsCount && mergeConflictsCount != 0 && config.git-buttons-conflict.conflict_accept_incoming",
+                    "group": "navigation@9"
+                },
+                {
+                    "command": "git-buttons.conflict_accept_selection",
+                    "when": "mergeConflictsCount && mergeConflictsCount != 0 && config.git-buttons-conflict.conflict_accept_selection",
+                    "group": "navigation@10"
                 }
             ]
         }

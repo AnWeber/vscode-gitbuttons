@@ -15,8 +15,10 @@ const fs = require('fs').promises;
     packageJson.contributes.commands = [];
     packageJson.contributes.menus['scm/title'] = [];
     packageJson.contributes.menus['view/title'] = [];
+    packageJson.contributes.menus['editor/title'] = [];
 
     await refreshGitCommands(packageJson, prevCommands);
+    await refreshMergeConflictCommands(packageJson, prevCommands);
 
     hideCommandsInCommandPalette(packageJson);
     await fs.writeFile(path, JSON.stringify(packageJson, null, 4));
@@ -73,6 +75,42 @@ async function refreshGitCommands(packageJson, prevCommands) {
   addConfigurationJson(commands, packageJson.contributes.configuration[0].properties['git-buttons-fileview']);
 }
 
+async function refreshMergeConflictCommands(packageJson, prevCommands) {
+  const body = await (await import('got')).got('https://raw.githubusercontent.com/microsoft/vscode/main/extensions/merge-conflict/package.json').json();
+  const gitCommands = body.contributes.commands
+    .filter(obj => !obj.icon)
+    .filter(obj => ['merge-conflict.next', 'merge-conflict.previous', 'merge-conflict.compare'].indexOf(obj.command) < 0)
+    .map(obj => {
+      const result = {
+        title: obj.command,
+        command: obj.command
+          .replace(/\./gu, '_')
+          .replace('merge-conflict', 'git-buttons.conflict'),
+        category: 'Git Buttons',
+      };
+      result.icon = prevCommands.find(c => c.command === result.command)?.icon || '$(question)';
+      return result;
+    })
+    .sort((obj1, obj2) => {
+      if (obj1.command < obj2.command) {
+        return -1;
+      }
+      if (obj1.command > obj2.command) {
+        return 1;
+      }
+      return 0;
+    });
+  packageJson.contributes.commands.push(...gitCommands);
+  addConfigurationJson(gitCommands, packageJson.contributes.configuration[0].properties['git-buttons-conflict']);
+  packageJson.contributes.menus['editor/title'].push(...gitCommands
+    .map((obj, index) => ({
+      command: obj.command,
+      when: `mergeConflictsCount && mergeConflictsCount != 0 && config.git-buttons-conflict.${obj.command.slice(obj.command.indexOf('.') + 1)}`,
+      'group': `navigation@${index + 4}`
+    })));
+
+}
+
 function createGitTitleMenuEntries(commands, configKey, whenCondition) {
   const commandPrefixLength = 'git-buttons.'.length;
   return [
@@ -115,16 +153,15 @@ function hideCommandsInCommandPalette(packageJson) {
 }
 
 function addConfigurationJson(commands, configuration) {
-  const commandPrefixLength = 'git-buttons.'.length;
   configuration.default = commands
     .reduce((acc, curr) => {
-      acc[curr.command.slice(commandPrefixLength)] = false;
+      acc[curr.command.slice(curr.command.indexOf('.') + 1)] = false;
       return acc;
     }, {});
 
   configuration.properties = commands
     .reduce((acc, curr) => {
-      acc[curr.command.slice(commandPrefixLength)] = {
+      acc[curr.command.slice(curr.command.indexOf('.') + 1)] = {
         'type': 'boolean',
         'default': false,
         'description': curr.title
