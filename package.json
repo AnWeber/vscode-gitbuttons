@@ -1,7 +1,7 @@
 {
     "name": "git-buttons",
     "publisher": "anweber",
-    "version": "2.1.1",
+    "version": "3.0.0",
     "description": "Git Buttons for Visual Studio Code",
     "displayName": "Git Buttons",
     "main": "dist/extension.js",

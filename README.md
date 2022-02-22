@@ -15,3 +15,5 @@ Differences to scm-buttons-vscode
 * auto sync for all git.commands
 * better workspace support
 
+## License
+[MIT License](LICENSE)
