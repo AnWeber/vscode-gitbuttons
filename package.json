@@ -59,6 +59,11 @@
                                 "default": false,
                                 "description": "Push Context"
                             },
+                            "acceptMerge": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.acceptMerge"
+                            },
                             "addRemote": {
                                 "type": "boolean",
                                 "default": false,
@@ -174,6 +179,16 @@
                                 "default": false,
                                 "description": "git.commitEmptyNoVerify"
                             },
+                            "commitMessageAccept": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.commitMessageAccept"
+                            },
+                            "commitMessageDiscard": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.commitMessageDiscard"
+                            },
                             "commitNoVerify": {
                                 "type": "boolean",
                                 "default": false,
@@ -209,6 +224,11 @@
                                 "default": false,
                                 "description": "git.commitStagedSignedNoVerify"
                             },
+                            "continueInLocalClone": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.continueInLocalClone"
+                            },
                             "createTag": {
                                 "type": "boolean",
                                 "default": false,
@@ -218,6 +238,11 @@
                                 "type": "boolean",
                                 "default": false,
                                 "description": "git.deleteBranch"
+                            },
+                            "deleteRemoteTag": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.deleteRemoteTag"
                             },
                             "deleteTag": {
                                 "type": "boolean",
@@ -249,10 +274,20 @@
                                 "default": false,
                                 "description": "git.init"
                             },
+                            "manageUnsafeRepositories": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.manageUnsafeRepositories"
+                            },
                             "merge": {
                                 "type": "boolean",
                                 "default": false,
                                 "description": "git.merge"
+                            },
+                            "mergeAbort": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.mergeAbort"
                             },
                             "openAllChanges": {
                                 "type": "boolean",
@@ -278,6 +313,16 @@
                                 "type": "boolean",
                                 "default": false,
                                 "description": "git.openHEADFile"
+                            },
+                            "openMergeEditor": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.openMergeEditor"
+                            },
+                            "openRepositoriesInParentFolders": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.openRepositoriesInParentFolders"
                             },
                             "openRepository": {
                                 "type": "boolean",
@@ -389,10 +434,15 @@
                                 "default": false,
                                 "description": "git.revertSelectedRanges"
                             },
-                            "setLogLevel": {
+                            "runGitMerge": {
                                 "type": "boolean",
                                 "default": false,
-                                "description": "git.setLogLevel"
+                                "description": "git.runGitMerge"
+                            },
+                            "runGitMergeDiff3": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.runGitMergeDiff3"
                             },
                             "showOutput": {
                                 "type": "boolean",
@@ -474,6 +524,11 @@
                                 "default": false,
                                 "description": "git.stashPopLatest"
                             },
+                            "stashStaged": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.stashStaged"
+                            },
                             "sync": {
                                 "type": "boolean",
                                 "default": false,
@@ -509,6 +564,7 @@
                         "default": {
                             "pullContext": false,
                             "pushContext": false,
+                            "acceptMerge": false,
                             "addRemote": false,
                             "branch": false,
                             "branchFrom": false,
@@ -532,6 +588,8 @@
                             "commitAllSignedNoVerify": false,
                             "commitEmpty": false,
                             "commitEmptyNoVerify": false,
+                            "commitMessageAccept": false,
+                            "commitMessageDiscard": false,
                             "commitNoVerify": false,
                             "commitStaged": false,
                             "commitStagedAmend": false,
@@ -539,20 +597,26 @@
                             "commitStagedNoVerify": false,
                             "commitStagedSigned": false,
                             "commitStagedSignedNoVerify": false,
+                            "continueInLocalClone": false,
                             "createTag": false,
                             "deleteBranch": false,
+                            "deleteRemoteTag": false,
                             "deleteTag": false,
                             "fetch": false,
                             "fetchAll": false,
                             "fetchPrune": false,
                             "ignore": false,
                             "init": false,
+                            "manageUnsafeRepositories": false,
                             "merge": false,
+                            "mergeAbort": false,
                             "openAllChanges": false,
                             "openChange": false,
                             "openFile": false,
                             "openFile2": false,
                             "openHEADFile": false,
+                            "openMergeEditor": false,
+                            "openRepositoriesInParentFolders": false,
                             "openRepository": false,
                             "publish": false,
                             "pull": false,
@@ -575,7 +639,8 @@
                             "revealInExplorer": false,
                             "revertChange": false,
                             "revertSelectedRanges": false,
-                            "setLogLevel": false,
+                            "runGitMerge": false,
+                            "runGitMergeDiff3": false,
                             "showOutput": false,
                             "stage": false,
                             "stageAll": false,
@@ -592,6 +657,7 @@
                             "stashIncludeUntracked": false,
                             "stashPop": false,
                             "stashPopLatest": false,
+                            "stashStaged": false,
                             "sync": false,
                             "syncRebase": false,
                             "undoCommit": false,
@@ -615,6 +681,11 @@
                                 "default": false,
                                 "description": "Push Context"
                             },
+                            "acceptMerge": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.acceptMerge"
+                            },
                             "addRemote": {
                                 "type": "boolean",
                                 "default": false,
@@ -730,6 +801,16 @@
                                 "default": false,
                                 "description": "git.commitEmptyNoVerify"
                             },
+                            "commitMessageAccept": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.commitMessageAccept"
+                            },
+                            "commitMessageDiscard": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.commitMessageDiscard"
+                            },
                             "commitNoVerify": {
                                 "type": "boolean",
                                 "default": false,
@@ -765,6 +846,11 @@
                                 "default": false,
                                 "description": "git.commitStagedSignedNoVerify"
                             },
+                            "continueInLocalClone": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.continueInLocalClone"
+                            },
                             "createTag": {
                                 "type": "boolean",
                                 "default": false,
@@ -774,6 +860,11 @@
                                 "type": "boolean",
                                 "default": false,
                                 "description": "git.deleteBranch"
+                            },
+                            "deleteRemoteTag": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.deleteRemoteTag"
                             },
                             "deleteTag": {
                                 "type": "boolean",
@@ -805,10 +896,20 @@
                                 "default": false,
                                 "description": "git.init"
                             },
+                            "manageUnsafeRepositories": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.manageUnsafeRepositories"
+                            },
                             "merge": {
                                 "type": "boolean",
                                 "default": false,
                                 "description": "git.merge"
+                            },
+                            "mergeAbort": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.mergeAbort"
                             },
                             "openAllChanges": {
                                 "type": "boolean",
@@ -834,6 +935,16 @@
                                 "type": "boolean",
                                 "default": false,
                                 "description": "git.openHEADFile"
+                            },
+                            "openMergeEditor": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.openMergeEditor"
+                            },
+                            "openRepositoriesInParentFolders": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.openRepositoriesInParentFolders"
                             },
                             "openRepository": {
                                 "type": "boolean",
@@ -945,10 +1056,15 @@
                                 "default": false,
                                 "description": "git.revertSelectedRanges"
                             },
-                            "setLogLevel": {
+                            "runGitMerge": {
                                 "type": "boolean",
                                 "default": false,
-                                "description": "git.setLogLevel"
+                                "description": "git.runGitMerge"
+                            },
+                            "runGitMergeDiff3": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.runGitMergeDiff3"
                             },
                             "showOutput": {
                                 "type": "boolean",
@@ -1030,6 +1146,11 @@
                                 "default": false,
                                 "description": "git.stashPopLatest"
                             },
+                            "stashStaged": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "git.stashStaged"
+                            },
                             "sync": {
                                 "type": "boolean",
                                 "default": false,
@@ -1065,6 +1186,7 @@
                         "default": {
                             "pullContext": false,
                             "pushContext": false,
+                            "acceptMerge": false,
                             "addRemote": false,
                             "branch": false,
                             "branchFrom": false,
@@ -1088,6 +1210,8 @@
                             "commitAllSignedNoVerify": false,
                             "commitEmpty": false,
                             "commitEmptyNoVerify": false,
+                            "commitMessageAccept": false,
+                            "commitMessageDiscard": false,
                             "commitNoVerify": false,
                             "commitStaged": false,
                             "commitStagedAmend": false,
@@ -1095,20 +1219,26 @@
                             "commitStagedNoVerify": false,
                             "commitStagedSigned": false,
                             "commitStagedSignedNoVerify": false,
+                            "continueInLocalClone": false,
                             "createTag": false,
                             "deleteBranch": false,
+                            "deleteRemoteTag": false,
                             "deleteTag": false,
                             "fetch": false,
                             "fetchAll": false,
                             "fetchPrune": false,
                             "ignore": false,
                             "init": false,
+                            "manageUnsafeRepositories": false,
                             "merge": false,
+                            "mergeAbort": false,
                             "openAllChanges": false,
                             "openChange": false,
                             "openFile": false,
                             "openFile2": false,
                             "openHEADFile": false,
+                            "openMergeEditor": false,
+                            "openRepositoriesInParentFolders": false,
                             "openRepository": false,
                             "publish": false,
                             "pull": false,
@@ -1131,7 +1261,8 @@
                             "revealInExplorer": false,
                             "revertChange": false,
                             "revertSelectedRanges": false,
-                            "setLogLevel": false,
+                            "runGitMerge": false,
+                            "runGitMergeDiff3": false,
                             "showOutput": false,
                             "stage": false,
                             "stageAll": false,
@@ -1148,6 +1279,7 @@
                             "stashIncludeUntracked": false,
                             "stashPop": false,
                             "stashPopLatest": false,
+                            "stashStaged": false,
                             "sync": false,
                             "syncRebase": false,
                             "undoCommit": false,
@@ -1223,6 +1355,12 @@
                 "command": "git-buttons.pushContext",
                 "category": "Git Buttons",
                 "icon": "$(arrow-up)"
+            },
+            {
+                "title": "git.acceptMerge",
+                "command": "git-buttons.acceptMerge",
+                "category": "Git Buttons",
+                "icon": "$(question)"
             },
             {
                 "title": "git.addRemote",
@@ -1363,6 +1501,18 @@
                 "icon": "$(check)"
             },
             {
+                "title": "git.commitMessageAccept",
+                "command": "git-buttons.commitMessageAccept",
+                "category": "Git Buttons",
+                "icon": "$(question)"
+            },
+            {
+                "title": "git.commitMessageDiscard",
+                "command": "git-buttons.commitMessageDiscard",
+                "category": "Git Buttons",
+                "icon": "$(question)"
+            },
+            {
                 "title": "git.commitNoVerify",
                 "command": "git-buttons.commitNoVerify",
                 "category": "Git Buttons",
@@ -1405,6 +1555,12 @@
                 "icon": "$(check)"
             },
             {
+                "title": "git.continueInLocalClone",
+                "command": "git-buttons.continueInLocalClone",
+                "category": "Git Buttons",
+                "icon": "$(question)"
+            },
+            {
                 "title": "git.createTag",
                 "command": "git-buttons.createTag",
                 "category": "Git Buttons",
@@ -1415,6 +1571,12 @@
                 "command": "git-buttons.deleteBranch",
                 "category": "Git Buttons",
                 "icon": "$(git-branch-delete)"
+            },
+            {
+                "title": "git.deleteRemoteTag",
+                "command": "git-buttons.deleteRemoteTag",
+                "category": "Git Buttons",
+                "icon": "$(question)"
             },
             {
                 "title": "git.deleteTag",
@@ -1453,10 +1615,22 @@
                 "icon": "$(repo-create)"
             },
             {
+                "title": "git.manageUnsafeRepositories",
+                "command": "git-buttons.manageUnsafeRepositories",
+                "category": "Git Buttons",
+                "icon": "$(question)"
+            },
+            {
                 "title": "git.merge",
                 "command": "git-buttons.merge",
                 "category": "Git Buttons",
                 "icon": "$(git-merge)"
+            },
+            {
+                "title": "git.mergeAbort",
+                "command": "git-buttons.mergeAbort",
+                "category": "Git Buttons",
+                "icon": "$(question)"
             },
             {
                 "title": "git.openAllChanges",
@@ -1487,6 +1661,18 @@
                 "command": "git-buttons.openHEADFile",
                 "category": "Git Buttons",
                 "icon": "$(file-code)"
+            },
+            {
+                "title": "git.openMergeEditor",
+                "command": "git-buttons.openMergeEditor",
+                "category": "Git Buttons",
+                "icon": "$(question)"
+            },
+            {
+                "title": "git.openRepositoriesInParentFolders",
+                "command": "git-buttons.openRepositoriesInParentFolders",
+                "category": "Git Buttons",
+                "icon": "$(question)"
             },
             {
                 "title": "git.openRepository",
@@ -1621,8 +1807,14 @@
                 "icon": "$(discard)"
             },
             {
-                "title": "git.setLogLevel",
-                "command": "git-buttons.setLogLevel",
+                "title": "git.runGitMerge",
+                "command": "git-buttons.runGitMerge",
+                "category": "Git Buttons",
+                "icon": "$(question)"
+            },
+            {
+                "title": "git.runGitMergeDiff3",
+                "command": "git-buttons.runGitMergeDiff3",
                 "category": "Git Buttons",
                 "icon": "$(question)"
             },
@@ -1721,6 +1913,12 @@
                 "command": "git-buttons.stashPopLatest",
                 "category": "Git Buttons",
                 "icon": "$(arrow-small-down)"
+            },
+            {
+                "title": "git.stashStaged",
+                "command": "git-buttons.stashStaged",
+                "category": "Git Buttons",
+                "icon": "$(question)"
             },
             {
                 "title": "git.sync",
@@ -1824,439 +2022,494 @@
                     "group": "navigation@3"
                 },
                 {
+                    "command": "git-buttons.acceptMerge",
+                    "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.acceptMerge",
+                    "group": "navigation@4"
+                },
+                {
                     "command": "git-buttons.addRemote",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.addRemote",
-                    "group": "navigation@4"
+                    "group": "navigation@5"
                 },
                 {
                     "command": "git-buttons.branch",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.branch",
-                    "group": "navigation@5"
+                    "group": "navigation@6"
                 },
                 {
                     "command": "git-buttons.branchFrom",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.branchFrom",
-                    "group": "navigation@6"
+                    "group": "navigation@7"
                 },
                 {
                     "command": "git-buttons.checkout",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.checkout",
-                    "group": "navigation@7"
+                    "group": "navigation@8"
                 },
                 {
                     "command": "git-buttons.checkoutDetached",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.checkoutDetached",
-                    "group": "navigation@8"
+                    "group": "navigation@9"
                 },
                 {
                     "command": "git-buttons.cherryPick",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.cherryPick",
-                    "group": "navigation@9"
+                    "group": "navigation@10"
                 },
                 {
                     "command": "git-buttons.clean",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.clean",
-                    "group": "navigation@10"
+                    "group": "navigation@11"
                 },
                 {
                     "command": "git-buttons.cleanAll",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.cleanAll",
-                    "group": "navigation@11"
+                    "group": "navigation@12"
                 },
                 {
                     "command": "git-buttons.cleanAllTracked",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.cleanAllTracked",
-                    "group": "navigation@12"
+                    "group": "navigation@13"
                 },
                 {
                     "command": "git-buttons.cleanAllUntracked",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.cleanAllUntracked",
-                    "group": "navigation@13"
+                    "group": "navigation@14"
                 },
                 {
                     "command": "git-buttons.clone",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.clone",
-                    "group": "navigation@14"
+                    "group": "navigation@15"
                 },
                 {
                     "command": "git-buttons.cloneRecursive",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.cloneRecursive",
-                    "group": "navigation@15"
+                    "group": "navigation@16"
                 },
                 {
                     "command": "git-buttons.close",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.close",
-                    "group": "navigation@16"
+                    "group": "navigation@17"
                 },
                 {
                     "command": "git-buttons.closeAllDiffEditors",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.closeAllDiffEditors",
-                    "group": "navigation@17"
+                    "group": "navigation@18"
                 },
                 {
                     "command": "git-buttons.commit",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commit",
-                    "group": "navigation@18"
+                    "group": "navigation@19"
                 },
                 {
                     "command": "git-buttons.commitAll",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commitAll",
-                    "group": "navigation@19"
+                    "group": "navigation@20"
                 },
                 {
                     "command": "git-buttons.commitAllAmend",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commitAllAmend",
-                    "group": "navigation@20"
+                    "group": "navigation@21"
                 },
                 {
                     "command": "git-buttons.commitAllAmendNoVerify",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commitAllAmendNoVerify",
-                    "group": "navigation@21"
+                    "group": "navigation@22"
                 },
                 {
                     "command": "git-buttons.commitAllNoVerify",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commitAllNoVerify",
-                    "group": "navigation@22"
+                    "group": "navigation@23"
                 },
                 {
                     "command": "git-buttons.commitAllSigned",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commitAllSigned",
-                    "group": "navigation@23"
+                    "group": "navigation@24"
                 },
                 {
                     "command": "git-buttons.commitAllSignedNoVerify",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commitAllSignedNoVerify",
-                    "group": "navigation@24"
+                    "group": "navigation@25"
                 },
                 {
                     "command": "git-buttons.commitEmpty",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commitEmpty",
-                    "group": "navigation@25"
+                    "group": "navigation@26"
                 },
                 {
                     "command": "git-buttons.commitEmptyNoVerify",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commitEmptyNoVerify",
-                    "group": "navigation@26"
+                    "group": "navigation@27"
+                },
+                {
+                    "command": "git-buttons.commitMessageAccept",
+                    "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commitMessageAccept",
+                    "group": "navigation@28"
+                },
+                {
+                    "command": "git-buttons.commitMessageDiscard",
+                    "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commitMessageDiscard",
+                    "group": "navigation@29"
                 },
                 {
                     "command": "git-buttons.commitNoVerify",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commitNoVerify",
-                    "group": "navigation@27"
+                    "group": "navigation@30"
                 },
                 {
                     "command": "git-buttons.commitStaged",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commitStaged",
-                    "group": "navigation@28"
+                    "group": "navigation@31"
                 },
                 {
                     "command": "git-buttons.commitStagedAmend",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commitStagedAmend",
-                    "group": "navigation@29"
+                    "group": "navigation@32"
                 },
                 {
                     "command": "git-buttons.commitStagedAmendNoVerify",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commitStagedAmendNoVerify",
-                    "group": "navigation@30"
+                    "group": "navigation@33"
                 },
                 {
                     "command": "git-buttons.commitStagedNoVerify",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commitStagedNoVerify",
-                    "group": "navigation@31"
+                    "group": "navigation@34"
                 },
                 {
                     "command": "git-buttons.commitStagedSigned",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commitStagedSigned",
-                    "group": "navigation@32"
+                    "group": "navigation@35"
                 },
                 {
                     "command": "git-buttons.commitStagedSignedNoVerify",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.commitStagedSignedNoVerify",
-                    "group": "navigation@33"
+                    "group": "navigation@36"
+                },
+                {
+                    "command": "git-buttons.continueInLocalClone",
+                    "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.continueInLocalClone",
+                    "group": "navigation@37"
                 },
                 {
                     "command": "git-buttons.createTag",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.createTag",
-                    "group": "navigation@34"
+                    "group": "navigation@38"
                 },
                 {
                     "command": "git-buttons.deleteBranch",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.deleteBranch",
-                    "group": "navigation@35"
+                    "group": "navigation@39"
+                },
+                {
+                    "command": "git-buttons.deleteRemoteTag",
+                    "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.deleteRemoteTag",
+                    "group": "navigation@40"
                 },
                 {
                     "command": "git-buttons.deleteTag",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.deleteTag",
-                    "group": "navigation@36"
+                    "group": "navigation@41"
                 },
                 {
                     "command": "git-buttons.fetch",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.fetch",
-                    "group": "navigation@37"
+                    "group": "navigation@42"
                 },
                 {
                     "command": "git-buttons.fetchAll",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.fetchAll",
-                    "group": "navigation@38"
+                    "group": "navigation@43"
                 },
                 {
                     "command": "git-buttons.fetchPrune",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.fetchPrune",
-                    "group": "navigation@39"
+                    "group": "navigation@44"
                 },
                 {
                     "command": "git-buttons.ignore",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.ignore",
-                    "group": "navigation@40"
+                    "group": "navigation@45"
                 },
                 {
                     "command": "git-buttons.init",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.init",
-                    "group": "navigation@41"
+                    "group": "navigation@46"
+                },
+                {
+                    "command": "git-buttons.manageUnsafeRepositories",
+                    "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.manageUnsafeRepositories",
+                    "group": "navigation@47"
                 },
                 {
                     "command": "git-buttons.merge",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.merge",
-                    "group": "navigation@42"
+                    "group": "navigation@48"
+                },
+                {
+                    "command": "git-buttons.mergeAbort",
+                    "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.mergeAbort",
+                    "group": "navigation@49"
                 },
                 {
                     "command": "git-buttons.openAllChanges",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.openAllChanges",
-                    "group": "navigation@43"
+                    "group": "navigation@50"
                 },
                 {
                     "command": "git-buttons.openChange",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.openChange",
-                    "group": "navigation@44"
+                    "group": "navigation@51"
                 },
                 {
                     "command": "git-buttons.openFile",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.openFile",
-                    "group": "navigation@45"
+                    "group": "navigation@52"
                 },
                 {
                     "command": "git-buttons.openFile2",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.openFile2",
-                    "group": "navigation@46"
+                    "group": "navigation@53"
                 },
                 {
                     "command": "git-buttons.openHEADFile",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.openHEADFile",
-                    "group": "navigation@47"
+                    "group": "navigation@54"
+                },
+                {
+                    "command": "git-buttons.openMergeEditor",
+                    "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.openMergeEditor",
+                    "group": "navigation@55"
+                },
+                {
+                    "command": "git-buttons.openRepositoriesInParentFolders",
+                    "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.openRepositoriesInParentFolders",
+                    "group": "navigation@56"
                 },
                 {
                     "command": "git-buttons.openRepository",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.openRepository",
-                    "group": "navigation@48"
+                    "group": "navigation@57"
                 },
                 {
                     "command": "git-buttons.publish",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.publish",
-                    "group": "navigation@49"
+                    "group": "navigation@58"
                 },
                 {
                     "command": "git-buttons.pullFrom",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.pullFrom",
-                    "group": "navigation@50"
+                    "group": "navigation@59"
                 },
                 {
                     "command": "git-buttons.pullRebase",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.pullRebase",
-                    "group": "navigation@51"
+                    "group": "navigation@60"
                 },
                 {
                     "command": "git-buttons.pushForce",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.pushForce",
-                    "group": "navigation@52"
+                    "group": "navigation@61"
                 },
                 {
                     "command": "git-buttons.pushTags",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.pushTags",
-                    "group": "navigation@53"
+                    "group": "navigation@62"
                 },
                 {
                     "command": "git-buttons.pushTo",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.pushTo",
-                    "group": "navigation@54"
+                    "group": "navigation@63"
                 },
                 {
                     "command": "git-buttons.pushToForce",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.pushToForce",
-                    "group": "navigation@55"
+                    "group": "navigation@64"
                 },
                 {
                     "command": "git-buttons.pushWithTags",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.pushWithTags",
-                    "group": "navigation@56"
+                    "group": "navigation@65"
                 },
                 {
                     "command": "git-buttons.pushWithTagsForce",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.pushWithTagsForce",
-                    "group": "navigation@57"
+                    "group": "navigation@66"
                 },
                 {
                     "command": "git-buttons.rebase",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.rebase",
-                    "group": "navigation@58"
+                    "group": "navigation@67"
                 },
                 {
                     "command": "git-buttons.rebaseAbort",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.rebaseAbort",
-                    "group": "navigation@59"
+                    "group": "navigation@68"
                 },
                 {
                     "command": "git-buttons.refresh",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.refresh",
-                    "group": "navigation@60"
+                    "group": "navigation@69"
                 },
                 {
                     "command": "git-buttons.removeRemote",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.removeRemote",
-                    "group": "navigation@61"
+                    "group": "navigation@70"
                 },
                 {
                     "command": "git-buttons.rename",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.rename",
-                    "group": "navigation@62"
+                    "group": "navigation@71"
                 },
                 {
                     "command": "git-buttons.renameBranch",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.renameBranch",
-                    "group": "navigation@63"
+                    "group": "navigation@72"
                 },
                 {
                     "command": "git-buttons.restoreCommitTemplate",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.restoreCommitTemplate",
-                    "group": "navigation@64"
+                    "group": "navigation@73"
                 },
                 {
                     "command": "git-buttons.revealInExplorer",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.revealInExplorer",
-                    "group": "navigation@65"
+                    "group": "navigation@74"
                 },
                 {
                     "command": "git-buttons.revertChange",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.revertChange",
-                    "group": "navigation@66"
+                    "group": "navigation@75"
                 },
                 {
                     "command": "git-buttons.revertSelectedRanges",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.revertSelectedRanges",
-                    "group": "navigation@67"
+                    "group": "navigation@76"
                 },
                 {
-                    "command": "git-buttons.setLogLevel",
-                    "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.setLogLevel",
-                    "group": "navigation@68"
+                    "command": "git-buttons.runGitMerge",
+                    "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.runGitMerge",
+                    "group": "navigation@77"
+                },
+                {
+                    "command": "git-buttons.runGitMergeDiff3",
+                    "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.runGitMergeDiff3",
+                    "group": "navigation@78"
                 },
                 {
                     "command": "git-buttons.showOutput",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.showOutput",
-                    "group": "navigation@69"
+                    "group": "navigation@79"
                 },
                 {
                     "command": "git-buttons.stage",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.stage",
-                    "group": "navigation@70"
+                    "group": "navigation@80"
                 },
                 {
                     "command": "git-buttons.stageAll",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.stageAll",
-                    "group": "navigation@71"
+                    "group": "navigation@81"
                 },
                 {
                     "command": "git-buttons.stageAllMerge",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.stageAllMerge",
-                    "group": "navigation@72"
+                    "group": "navigation@82"
                 },
                 {
                     "command": "git-buttons.stageAllTracked",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.stageAllTracked",
-                    "group": "navigation@73"
+                    "group": "navigation@83"
                 },
                 {
                     "command": "git-buttons.stageAllUntracked",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.stageAllUntracked",
-                    "group": "navigation@74"
+                    "group": "navigation@84"
                 },
                 {
                     "command": "git-buttons.stageChange",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.stageChange",
-                    "group": "navigation@75"
+                    "group": "navigation@85"
                 },
                 {
                     "command": "git-buttons.stageSelectedRanges",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.stageSelectedRanges",
-                    "group": "navigation@76"
+                    "group": "navigation@86"
                 },
                 {
                     "command": "git-buttons.stash",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.stash",
-                    "group": "navigation@77"
+                    "group": "navigation@87"
                 },
                 {
                     "command": "git-buttons.stashApply",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.stashApply",
-                    "group": "navigation@78"
+                    "group": "navigation@88"
                 },
                 {
                     "command": "git-buttons.stashApplyLatest",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.stashApplyLatest",
-                    "group": "navigation@79"
+                    "group": "navigation@89"
                 },
                 {
                     "command": "git-buttons.stashDrop",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.stashDrop",
-                    "group": "navigation@80"
+                    "group": "navigation@90"
                 },
                 {
                     "command": "git-buttons.stashDropAll",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.stashDropAll",
-                    "group": "navigation@81"
+                    "group": "navigation@91"
                 },
                 {
                     "command": "git-buttons.stashIncludeUntracked",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.stashIncludeUntracked",
-                    "group": "navigation@82"
+                    "group": "navigation@92"
                 },
                 {
                     "command": "git-buttons.stashPop",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.stashPop",
-                    "group": "navigation@83"
+                    "group": "navigation@93"
                 },
                 {
                     "command": "git-buttons.stashPopLatest",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.stashPopLatest",
-                    "group": "navigation@84"
+                    "group": "navigation@94"
+                },
+                {
+                    "command": "git-buttons.stashStaged",
+                    "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.stashStaged",
+                    "group": "navigation@95"
                 },
                 {
                     "command": "git-buttons.sync",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.sync",
-                    "group": "navigation@85"
+                    "group": "navigation@96"
                 },
                 {
                     "command": "git-buttons.syncRebase",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.syncRebase",
-                    "group": "navigation@86"
+                    "group": "navigation@97"
                 },
                 {
                     "command": "git-buttons.undoCommit",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.undoCommit",
-                    "group": "navigation@87"
+                    "group": "navigation@98"
                 },
                 {
                     "command": "git-buttons.unstage",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.unstage",
-                    "group": "navigation@88"
+                    "group": "navigation@99"
                 },
                 {
                     "command": "git-buttons.unstageAll",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.unstageAll",
-                    "group": "navigation@89"
+                    "group": "navigation@100"
                 },
                 {
                     "command": "git-buttons.unstageSelectedRanges",
                     "when": "gitOpenRepositoryCount >= 1 && config.git-buttons.unstageSelectedRanges",
-                    "group": "navigation@90"
+                    "group": "navigation@101"
                 }
             ],
             "commandPalette": [
@@ -2269,6 +2522,10 @@
                     "when": "false"
                 },
                 {
+                    "command": "git-buttons.acceptMerge",
+                    "when": "false"
+                },
+                {
                     "command": "git-buttons.addRemote",
                     "when": "false"
                 },
@@ -2361,6 +2618,14 @@
                     "when": "false"
                 },
                 {
+                    "command": "git-buttons.commitMessageAccept",
+                    "when": "false"
+                },
+                {
+                    "command": "git-buttons.commitMessageDiscard",
+                    "when": "false"
+                },
+                {
                     "command": "git-buttons.commitNoVerify",
                     "when": "false"
                 },
@@ -2389,11 +2654,19 @@
                     "when": "false"
                 },
                 {
+                    "command": "git-buttons.continueInLocalClone",
+                    "when": "false"
+                },
+                {
                     "command": "git-buttons.createTag",
                     "when": "false"
                 },
                 {
                     "command": "git-buttons.deleteBranch",
+                    "when": "false"
+                },
+                {
+                    "command": "git-buttons.deleteRemoteTag",
                     "when": "false"
                 },
                 {
@@ -2421,7 +2694,15 @@
                     "when": "false"
                 },
                 {
+                    "command": "git-buttons.manageUnsafeRepositories",
+                    "when": "false"
+                },
+                {
                     "command": "git-buttons.merge",
+                    "when": "false"
+                },
+                {
+                    "command": "git-buttons.mergeAbort",
                     "when": "false"
                 },
                 {
@@ -2442,6 +2723,14 @@
                 },
                 {
                     "command": "git-buttons.openHEADFile",
+                    "when": "false"
+                },
+                {
+                    "command": "git-buttons.openMergeEditor",
+                    "when": "false"
+                },
+                {
+                    "command": "git-buttons.openRepositoriesInParentFolders",
                     "when": "false"
                 },
                 {
@@ -2533,7 +2822,11 @@
                     "when": "false"
                 },
                 {
-                    "command": "git-buttons.setLogLevel",
+                    "command": "git-buttons.runGitMerge",
+                    "when": "false"
+                },
+                {
+                    "command": "git-buttons.runGitMergeDiff3",
                     "when": "false"
                 },
                 {
@@ -2598,6 +2891,10 @@
                 },
                 {
                     "command": "git-buttons.stashPopLatest",
+                    "when": "false"
+                },
+                {
+                    "command": "git-buttons.stashStaged",
                     "when": "false"
                 },
                 {
@@ -2675,439 +2972,494 @@
                     "group": "navigation@3"
                 },
                 {
+                    "command": "git-buttons.acceptMerge",
+                    "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.acceptMerge",
+                    "group": "navigation@4"
+                },
+                {
                     "command": "git-buttons.addRemote",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.addRemote",
-                    "group": "navigation@4"
+                    "group": "navigation@5"
                 },
                 {
                     "command": "git-buttons.branch",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.branch",
-                    "group": "navigation@5"
+                    "group": "navigation@6"
                 },
                 {
                     "command": "git-buttons.branchFrom",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.branchFrom",
-                    "group": "navigation@6"
+                    "group": "navigation@7"
                 },
                 {
                     "command": "git-buttons.checkout",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.checkout",
-                    "group": "navigation@7"
+                    "group": "navigation@8"
                 },
                 {
                     "command": "git-buttons.checkoutDetached",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.checkoutDetached",
-                    "group": "navigation@8"
+                    "group": "navigation@9"
                 },
                 {
                     "command": "git-buttons.cherryPick",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.cherryPick",
-                    "group": "navigation@9"
+                    "group": "navigation@10"
                 },
                 {
                     "command": "git-buttons.clean",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.clean",
-                    "group": "navigation@10"
+                    "group": "navigation@11"
                 },
                 {
                     "command": "git-buttons.cleanAll",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.cleanAll",
-                    "group": "navigation@11"
+                    "group": "navigation@12"
                 },
                 {
                     "command": "git-buttons.cleanAllTracked",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.cleanAllTracked",
-                    "group": "navigation@12"
+                    "group": "navigation@13"
                 },
                 {
                     "command": "git-buttons.cleanAllUntracked",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.cleanAllUntracked",
-                    "group": "navigation@13"
+                    "group": "navigation@14"
                 },
                 {
                     "command": "git-buttons.clone",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.clone",
-                    "group": "navigation@14"
+                    "group": "navigation@15"
                 },
                 {
                     "command": "git-buttons.cloneRecursive",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.cloneRecursive",
-                    "group": "navigation@15"
+                    "group": "navigation@16"
                 },
                 {
                     "command": "git-buttons.close",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.close",
-                    "group": "navigation@16"
+                    "group": "navigation@17"
                 },
                 {
                     "command": "git-buttons.closeAllDiffEditors",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.closeAllDiffEditors",
-                    "group": "navigation@17"
+                    "group": "navigation@18"
                 },
                 {
                     "command": "git-buttons.commit",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commit",
-                    "group": "navigation@18"
+                    "group": "navigation@19"
                 },
                 {
                     "command": "git-buttons.commitAll",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commitAll",
-                    "group": "navigation@19"
+                    "group": "navigation@20"
                 },
                 {
                     "command": "git-buttons.commitAllAmend",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commitAllAmend",
-                    "group": "navigation@20"
+                    "group": "navigation@21"
                 },
                 {
                     "command": "git-buttons.commitAllAmendNoVerify",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commitAllAmendNoVerify",
-                    "group": "navigation@21"
+                    "group": "navigation@22"
                 },
                 {
                     "command": "git-buttons.commitAllNoVerify",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commitAllNoVerify",
-                    "group": "navigation@22"
+                    "group": "navigation@23"
                 },
                 {
                     "command": "git-buttons.commitAllSigned",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commitAllSigned",
-                    "group": "navigation@23"
+                    "group": "navigation@24"
                 },
                 {
                     "command": "git-buttons.commitAllSignedNoVerify",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commitAllSignedNoVerify",
-                    "group": "navigation@24"
+                    "group": "navigation@25"
                 },
                 {
                     "command": "git-buttons.commitEmpty",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commitEmpty",
-                    "group": "navigation@25"
+                    "group": "navigation@26"
                 },
                 {
                     "command": "git-buttons.commitEmptyNoVerify",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commitEmptyNoVerify",
-                    "group": "navigation@26"
+                    "group": "navigation@27"
+                },
+                {
+                    "command": "git-buttons.commitMessageAccept",
+                    "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commitMessageAccept",
+                    "group": "navigation@28"
+                },
+                {
+                    "command": "git-buttons.commitMessageDiscard",
+                    "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commitMessageDiscard",
+                    "group": "navigation@29"
                 },
                 {
                     "command": "git-buttons.commitNoVerify",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commitNoVerify",
-                    "group": "navigation@27"
+                    "group": "navigation@30"
                 },
                 {
                     "command": "git-buttons.commitStaged",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commitStaged",
-                    "group": "navigation@28"
+                    "group": "navigation@31"
                 },
                 {
                     "command": "git-buttons.commitStagedAmend",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commitStagedAmend",
-                    "group": "navigation@29"
+                    "group": "navigation@32"
                 },
                 {
                     "command": "git-buttons.commitStagedAmendNoVerify",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commitStagedAmendNoVerify",
-                    "group": "navigation@30"
+                    "group": "navigation@33"
                 },
                 {
                     "command": "git-buttons.commitStagedNoVerify",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commitStagedNoVerify",
-                    "group": "navigation@31"
+                    "group": "navigation@34"
                 },
                 {
                     "command": "git-buttons.commitStagedSigned",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commitStagedSigned",
-                    "group": "navigation@32"
+                    "group": "navigation@35"
                 },
                 {
                     "command": "git-buttons.commitStagedSignedNoVerify",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.commitStagedSignedNoVerify",
-                    "group": "navigation@33"
+                    "group": "navigation@36"
+                },
+                {
+                    "command": "git-buttons.continueInLocalClone",
+                    "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.continueInLocalClone",
+                    "group": "navigation@37"
                 },
                 {
                     "command": "git-buttons.createTag",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.createTag",
-                    "group": "navigation@34"
+                    "group": "navigation@38"
                 },
                 {
                     "command": "git-buttons.deleteBranch",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.deleteBranch",
-                    "group": "navigation@35"
+                    "group": "navigation@39"
+                },
+                {
+                    "command": "git-buttons.deleteRemoteTag",
+                    "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.deleteRemoteTag",
+                    "group": "navigation@40"
                 },
                 {
                     "command": "git-buttons.deleteTag",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.deleteTag",
-                    "group": "navigation@36"
+                    "group": "navigation@41"
                 },
                 {
                     "command": "git-buttons.fetch",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.fetch",
-                    "group": "navigation@37"
+                    "group": "navigation@42"
                 },
                 {
                     "command": "git-buttons.fetchAll",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.fetchAll",
-                    "group": "navigation@38"
+                    "group": "navigation@43"
                 },
                 {
                     "command": "git-buttons.fetchPrune",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.fetchPrune",
-                    "group": "navigation@39"
+                    "group": "navigation@44"
                 },
                 {
                     "command": "git-buttons.ignore",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.ignore",
-                    "group": "navigation@40"
+                    "group": "navigation@45"
                 },
                 {
                     "command": "git-buttons.init",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.init",
-                    "group": "navigation@41"
+                    "group": "navigation@46"
+                },
+                {
+                    "command": "git-buttons.manageUnsafeRepositories",
+                    "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.manageUnsafeRepositories",
+                    "group": "navigation@47"
                 },
                 {
                     "command": "git-buttons.merge",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.merge",
-                    "group": "navigation@42"
+                    "group": "navigation@48"
+                },
+                {
+                    "command": "git-buttons.mergeAbort",
+                    "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.mergeAbort",
+                    "group": "navigation@49"
                 },
                 {
                     "command": "git-buttons.openAllChanges",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.openAllChanges",
-                    "group": "navigation@43"
+                    "group": "navigation@50"
                 },
                 {
                     "command": "git-buttons.openChange",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.openChange",
-                    "group": "navigation@44"
+                    "group": "navigation@51"
                 },
                 {
                     "command": "git-buttons.openFile",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.openFile",
-                    "group": "navigation@45"
+                    "group": "navigation@52"
                 },
                 {
                     "command": "git-buttons.openFile2",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.openFile2",
-                    "group": "navigation@46"
+                    "group": "navigation@53"
                 },
                 {
                     "command": "git-buttons.openHEADFile",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.openHEADFile",
-                    "group": "navigation@47"
+                    "group": "navigation@54"
+                },
+                {
+                    "command": "git-buttons.openMergeEditor",
+                    "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.openMergeEditor",
+                    "group": "navigation@55"
+                },
+                {
+                    "command": "git-buttons.openRepositoriesInParentFolders",
+                    "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.openRepositoriesInParentFolders",
+                    "group": "navigation@56"
                 },
                 {
                     "command": "git-buttons.openRepository",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.openRepository",
-                    "group": "navigation@48"
+                    "group": "navigation@57"
                 },
                 {
                     "command": "git-buttons.publish",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.publish",
-                    "group": "navigation@49"
+                    "group": "navigation@58"
                 },
                 {
                     "command": "git-buttons.pullFrom",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.pullFrom",
-                    "group": "navigation@50"
+                    "group": "navigation@59"
                 },
                 {
                     "command": "git-buttons.pullRebase",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.pullRebase",
-                    "group": "navigation@51"
+                    "group": "navigation@60"
                 },
                 {
                     "command": "git-buttons.pushForce",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.pushForce",
-                    "group": "navigation@52"
+                    "group": "navigation@61"
                 },
                 {
                     "command": "git-buttons.pushTags",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.pushTags",
-                    "group": "navigation@53"
+                    "group": "navigation@62"
                 },
                 {
                     "command": "git-buttons.pushTo",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.pushTo",
-                    "group": "navigation@54"
+                    "group": "navigation@63"
                 },
                 {
                     "command": "git-buttons.pushToForce",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.pushToForce",
-                    "group": "navigation@55"
+                    "group": "navigation@64"
                 },
                 {
                     "command": "git-buttons.pushWithTags",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.pushWithTags",
-                    "group": "navigation@56"
+                    "group": "navigation@65"
                 },
                 {
                     "command": "git-buttons.pushWithTagsForce",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.pushWithTagsForce",
-                    "group": "navigation@57"
+                    "group": "navigation@66"
                 },
                 {
                     "command": "git-buttons.rebase",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.rebase",
-                    "group": "navigation@58"
+                    "group": "navigation@67"
                 },
                 {
                     "command": "git-buttons.rebaseAbort",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.rebaseAbort",
-                    "group": "navigation@59"
+                    "group": "navigation@68"
                 },
                 {
                     "command": "git-buttons.refresh",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.refresh",
-                    "group": "navigation@60"
+                    "group": "navigation@69"
                 },
                 {
                     "command": "git-buttons.removeRemote",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.removeRemote",
-                    "group": "navigation@61"
+                    "group": "navigation@70"
                 },
                 {
                     "command": "git-buttons.rename",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.rename",
-                    "group": "navigation@62"
+                    "group": "navigation@71"
                 },
                 {
                     "command": "git-buttons.renameBranch",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.renameBranch",
-                    "group": "navigation@63"
+                    "group": "navigation@72"
                 },
                 {
                     "command": "git-buttons.restoreCommitTemplate",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.restoreCommitTemplate",
-                    "group": "navigation@64"
+                    "group": "navigation@73"
                 },
                 {
                     "command": "git-buttons.revealInExplorer",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.revealInExplorer",
-                    "group": "navigation@65"
+                    "group": "navigation@74"
                 },
                 {
                     "command": "git-buttons.revertChange",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.revertChange",
-                    "group": "navigation@66"
+                    "group": "navigation@75"
                 },
                 {
                     "command": "git-buttons.revertSelectedRanges",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.revertSelectedRanges",
-                    "group": "navigation@67"
+                    "group": "navigation@76"
                 },
                 {
-                    "command": "git-buttons.setLogLevel",
-                    "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.setLogLevel",
-                    "group": "navigation@68"
+                    "command": "git-buttons.runGitMerge",
+                    "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.runGitMerge",
+                    "group": "navigation@77"
+                },
+                {
+                    "command": "git-buttons.runGitMergeDiff3",
+                    "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.runGitMergeDiff3",
+                    "group": "navigation@78"
                 },
                 {
                     "command": "git-buttons.showOutput",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.showOutput",
-                    "group": "navigation@69"
+                    "group": "navigation@79"
                 },
                 {
                     "command": "git-buttons.stage",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.stage",
-                    "group": "navigation@70"
+                    "group": "navigation@80"
                 },
                 {
                     "command": "git-buttons.stageAll",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.stageAll",
-                    "group": "navigation@71"
+                    "group": "navigation@81"
                 },
                 {
                     "command": "git-buttons.stageAllMerge",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.stageAllMerge",
-                    "group": "navigation@72"
+                    "group": "navigation@82"
                 },
                 {
                     "command": "git-buttons.stageAllTracked",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.stageAllTracked",
-                    "group": "navigation@73"
+                    "group": "navigation@83"
                 },
                 {
                     "command": "git-buttons.stageAllUntracked",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.stageAllUntracked",
-                    "group": "navigation@74"
+                    "group": "navigation@84"
                 },
                 {
                     "command": "git-buttons.stageChange",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.stageChange",
-                    "group": "navigation@75"
+                    "group": "navigation@85"
                 },
                 {
                     "command": "git-buttons.stageSelectedRanges",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.stageSelectedRanges",
-                    "group": "navigation@76"
+                    "group": "navigation@86"
                 },
                 {
                     "command": "git-buttons.stash",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.stash",
-                    "group": "navigation@77"
+                    "group": "navigation@87"
                 },
                 {
                     "command": "git-buttons.stashApply",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.stashApply",
-                    "group": "navigation@78"
+                    "group": "navigation@88"
                 },
                 {
                     "command": "git-buttons.stashApplyLatest",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.stashApplyLatest",
-                    "group": "navigation@79"
+                    "group": "navigation@89"
                 },
                 {
                     "command": "git-buttons.stashDrop",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.stashDrop",
-                    "group": "navigation@80"
+                    "group": "navigation@90"
                 },
                 {
                     "command": "git-buttons.stashDropAll",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.stashDropAll",
-                    "group": "navigation@81"
+                    "group": "navigation@91"
                 },
                 {
                     "command": "git-buttons.stashIncludeUntracked",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.stashIncludeUntracked",
-                    "group": "navigation@82"
+                    "group": "navigation@92"
                 },
                 {
                     "command": "git-buttons.stashPop",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.stashPop",
-                    "group": "navigation@83"
+                    "group": "navigation@93"
                 },
                 {
                     "command": "git-buttons.stashPopLatest",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.stashPopLatest",
-                    "group": "navigation@84"
+                    "group": "navigation@94"
+                },
+                {
+                    "command": "git-buttons.stashStaged",
+                    "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.stashStaged",
+                    "group": "navigation@95"
                 },
                 {
                     "command": "git-buttons.sync",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.sync",
-                    "group": "navigation@85"
+                    "group": "navigation@96"
                 },
                 {
                     "command": "git-buttons.syncRebase",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.syncRebase",
-                    "group": "navigation@86"
+                    "group": "navigation@97"
                 },
                 {
                     "command": "git-buttons.undoCommit",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.undoCommit",
-                    "group": "navigation@87"
+                    "group": "navigation@98"
                 },
                 {
                     "command": "git-buttons.unstage",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.unstage",
-                    "group": "navigation@88"
+                    "group": "navigation@99"
                 },
                 {
                     "command": "git-buttons.unstageAll",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.unstageAll",
-                    "group": "navigation@89"
+                    "group": "navigation@100"
                 },
                 {
                     "command": "git-buttons.unstageSelectedRanges",
                     "when": "view == workbench.explorer.fileView && gitOpenRepositoryCount >= 1 && config.git-buttons-fileview.unstageSelectedRanges",
-                    "group": "navigation@90"
+                    "group": "navigation@101"
                 }
             ],
             "editor/title": [
