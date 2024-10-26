@@ -1,8 +1,4 @@
-/* eslint-disable no-console */
-/* eslint-disable @typescript-eslint/no-var-requires */
-
-const fs = require('fs').promises;
-
+import { promsises as fs } from 'fs';
 
 (async function generate() {
 
