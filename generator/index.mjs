@@ -1,4 +1,4 @@
-import { promsises as fs } from 'fs';
+import { promises as fs } from 'fs';
 
 (async function generate() {
 
@@ -35,7 +35,7 @@ async function refreshGitCommands(packageJson, prevCommands) {
         command: obj.command.replace('git', 'git-buttons'),
         category: 'Git Buttons',
       };
-      result.icon = prevCommands.find(c => c.command === result.command)?.icon || '$(question)';
+      result.icon = obj.command.icon || prevCommands.find(c => c.command === result.command)?.icon || '$(question)';
       return result;
     }).sort((obj1, obj2) => {
       if (obj1.command < obj2.command) {
@@ -62,7 +62,7 @@ async function refreshGitCommands(packageJson, prevCommands) {
     },
     ...gitCommands
   ];
-  packageJson.contributes.commands.push(...commands);
+  packageJson.contributes.commands.push(...commands.filter(obj => obj.command.startsWith("git-buttons")));
 
   packageJson.contributes.menus['scm/title'].push(...createGitTitleMenuEntries(gitCommands, 'git-buttons', ''));
   packageJson.contributes.menus['view/title'].push(...createGitTitleMenuEntries(gitCommands, 'git-buttons-fileview', 'view == workbench.explorer.fileView && '));
@@ -108,7 +108,6 @@ async function refreshMergeConflictCommands(packageJson, prevCommands) {
 }
 
 function createGitTitleMenuEntries(commands, configKey, whenCondition) {
-  const commandPrefixLength = 'git-buttons.'.length;
   return [
     {
       'command': 'git-buttons.pullContext',
@@ -134,7 +133,7 @@ function createGitTitleMenuEntries(commands, configKey, whenCondition) {
       .filter(obj => ['git-buttons.pull', 'git-buttons.push'].indexOf(obj.command) < 0)
       .map((obj, index) => ({
         command: obj.command,
-        when: `${whenCondition}gitOpenRepositoryCount >= 1 && config.${configKey}.${obj.command.slice(commandPrefixLength)}`,
+        when: `${whenCondition}gitOpenRepositoryCount >= 1 && config.${configKey}.${obj.command.slice(obj.command.indexOf(".") + 1)}`,
         'group': `navigation@${index + 4}`
       }))
   ];
